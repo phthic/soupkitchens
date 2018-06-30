@@ -1,6 +1,7 @@
 class SoupkitchensController < ApplicationController
+	before_action :set_soupkitchen, only [:show, :edit, :update, :destroy]
 
-
+binding.pry
   def index
   	@soupkitchens = Soupkitchen.all
   end 
@@ -29,9 +30,9 @@ class SoupkitchensController < ApplicationController
   end
 
   def update
-  	@soupkitchen.update(soup_kitchen_params)
+  	@soupkitchen.update(soupkitchen_params)
   	if @soupkitchen.save
-  		redirect_to soup_kitchen_path(@soup_kitchen), notice: "Changes to #{@soupkitchen} were successful."
+  		redirect_to soupkitchen_path(@soup_kitchen), notice: "Changes to #{@soupkitchen} were successful."
   	else 
   		flash[:notice] = "Something went wrong"
   		render :edit
@@ -39,7 +40,7 @@ class SoupkitchensController < ApplicationController
   end 
 
 
-   def destroy
+  def destroy
   	@soupkitchen.destroy
   	redirect_to @soupkitchens_path
   end 
@@ -51,7 +52,8 @@ class SoupkitchensController < ApplicationController
 
 
   def soupkitchen_params
-  	params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors)
+  	params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors]
+  		# :comments_attributes[ :title, :content, :user_id]), :user_attributes[:first_name, :last_name]
   end 
 
 end
