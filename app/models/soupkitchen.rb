@@ -1,0 +1,2 @@
+class Soupkitchen < ApplicationRecord
+end
