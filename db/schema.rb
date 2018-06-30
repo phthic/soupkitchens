@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2018_06_30_030446) do
     t.string "address"
     t.string "city"
     t.string "state"
-    t.string "zipcode"
-    t.string "phone"
+    t.integer "zipcode"
+    t.integer "phone"
     t.boolean "indoors"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2018_06_30_030446) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "mobile_number"
-    t.string "zipcode"
+    t.integer "mobile_number"
+    t.integer "zipcode"
     t.text "about_me"
     t.string "password_digest"
     t.datetime "created_at", null: false

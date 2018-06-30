@@ -9,11 +9,11 @@ class SoupkitchensController < ApplicationController
   	@soupkitchen = Soupkitchen.new
   end
 
-  
+
   def create 
-  	@soupkitchen = SoupKitchen.new(soup_kitchen_params)
+  	@soupkitchen = Soupkitchen.new(soupkitchen_params)
   	if @soupkitchen.save
-  		redirect_to soup_kitchen_path(@soup_kitchen), notice: "New SoupKitchen was successfully added."
+  		redirect_to soupkitchen_path(@soupkitchen), notice: "New Soup Kitchen was successfully added."
   	else 
   		flash[:notice] = "Something went wrong"
   		render :new
@@ -22,7 +22,7 @@ class SoupkitchensController < ApplicationController
 
   def show
     @comments = Comment.all
-    @soupkitchens = SoupKitchen.all
+    @soupkitchens = Soupkitchen.all
   end
 
   def edit 
