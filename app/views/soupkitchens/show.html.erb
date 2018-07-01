@@ -1,0 +1,43 @@
+<p>
+<%= @soupkitchen.name %><br>
+<%= @soupkitchen.address %><br>
+<%= @soupkitchen.city %><br>
+<%= @soupkitchen.state %><br>
+<%= @soupkitchen.zipcode %><br>
+<%= @soupkitchen.phone %><br>
+<%= @soupkitchen.indoors %><br>
+</p>
+
+<h3>Comments</h3>
+
+
+  <%= @soupkitchen.comments.each do |comment| %>
+    <p>
+    Title: <%= comment.title %>
+    <Comment: <%= comment.content %>
+    </p>
+  <% end %>
+
+
+<h3>Add a comment</h3>
+
+<%= form_with(model: [ @soupkitchen, @soupkitchen.comments.build ],local: true) do |f| %>
+
+	<%= f.label "Title of Comment" %>
+	<%= f.text_field :title %>
+	<br>
+	<%= f.label "Comment" %>
+	<%= f.text_field :content %>
+	<br>
+	Add Rating (from 1 - 5)
+	<br>
+
+	<%= f.submit %>
+<% end %>
+	
+  <p>
+  <%= link_to 'Back', soupkitchen_path %>
+  <%= link_to 'Edit', edit_soupkitchen_comment_path(@comment) %>
+  <%= link_to "Delete Comment", [soupkitchen.comment, comment],
+      method: :delete, data: {confirm: 'Are you sure?'}  %>
+ </p>
