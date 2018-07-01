@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-	protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
 
-	 helper_method :current_user
+  helper_method :current_user
 
   def login_required
     if !logged_in?
@@ -22,7 +22,5 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end 
   # use this as a before_action filter. add flash-notice "something went wrong"
-
-end
 
 end
