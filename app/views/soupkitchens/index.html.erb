@@ -1,0 +1,17 @@
+
+<h2>Philadelphia Soup Kitchens</h2>
+
+<ul>
+	<% @soupkitchens.each do |soupkitchen| %>
+	  <p>
+		<%= soupkitchen.id %><br>
+		<%= soupkitchen.name %><br>
+		<%= soupkitchen.address %><br>
+		<%= link_to "See Info and Comments", soupkitchen_path(soupkitchen) %>
+	    <br>add image
+	    <br>
+	 </p>
+	<% end %>	
+</ul>
+  
+<%= link_to "Add", new_soupkitchen_path %>

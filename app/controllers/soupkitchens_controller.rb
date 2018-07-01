@@ -6,28 +6,28 @@ class SoupkitchensController < ApplicationController
   	@soupkitchens = Soupkitchen.all
   end 
 
-  # def new
-  # 	@soupkitchen = Soupkitchen.new
-  # end
+ #  def new
+ #  	@soupkitchen = Soupkitchen.new
+ #  end
 
 
-  # def create 
-  # 	@soupkitchen = Soupkitchen.new(soupkitchen_params)
-  # 	if @soupkitchen.save
-  # 		redirect_to soupkitchen_path(@soupkitchen), notice: "New Soup Kitchen was successfully added."
-  # 	else 
-  # 		flash[:notice] = "Something went wrong"
-  # 		render :new
-  # 	end 
-  # end
+ #  def create 
+ #  	@soupkitchen = Soupkitchen.new(soupkitchen_params)
+ #  	if @soupkitchen.save
+ #  		redirect_to soupkitchen_path(@soupkitchen), notice: "New Soup Kitchen was successfully added."
+ #  	else 
+ #  		flash[:notice] = "Something went wrong"
+ #  		render :new
+ #  	end 
+ #  end
 
-  # def show
-  #   @comments = Comment.all
-  #   @soupkitchens = Soupkitchen.all
-  # end
+ #  def show
+ #    @comments = Comment.all
+ #    @soupkitchens = Soupkitchen.all
+ #  end
 
-  # def edit 
-  # end
+ #  def edit 
+ #  end
 
  #  def update
  #  	@soupkitchen.update(soupkitchen_params)
