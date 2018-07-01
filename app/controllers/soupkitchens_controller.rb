@@ -1,7 +1,7 @@
 class SoupkitchensController < ApplicationController
 	# before_action :set_soupkitchen, only [:show, :edit, :update, :destroy]
 
-
+binding.pry
   def index
   	@soupkitchens = Soupkitchen.all
   end 
@@ -21,15 +21,15 @@ class SoupkitchensController < ApplicationController
   	end 
   end
 
-   def show
+  def show
      # @comments = Comment.all
      @soupkitchen = Soupkitchen.find(params[:id])
       # @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
 
-      @comment = Soupkitchen.comments.create(comment_params)
+      # @comment = Soupkitchen.comments.create(comment_params)
     
     redirect_to soupkitchen_path(@soupkitchen)
-    end
+  end
 
  #  def edit 
  #  end
@@ -50,21 +50,18 @@ class SoupkitchensController < ApplicationController
  #  end 
 
  private
-  # def set_soupkitchen
-	 #  @soupkitchen = Soupkitchen.find(params[:id])
-  # end 
-
-
-  # def soupkitchen_params
-  # 	params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors]
-  # 		# :comments_attributes[ :title, :content, :user_id]), :user_attributes[:first_name, :last_name]
-  # end 
+ 
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comment_attributes[:title, :content, :soup_kitchen_id, :user_id], :user_attributes[:first_name])
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors)
   end
-
+# :comment_attributes[:title, :content, :soup_kitchen_id, :user_id]
   def comment_params
     params.requre(:comment).permit(:title, :content)
   end
+
+   # def set_soupkitchen
+   #  @soupkitchen = Soupkitchen.find(params[:id])
+  # end 
+
 
 end
