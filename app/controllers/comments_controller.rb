@@ -5,28 +5,28 @@ class CommentsController < ApplicationController
   # def index	
   # end 
 
-  # def new
-  #   @comment = Comment.new
-  #   @soupkitchen = SoupKitchen.find(params[:soup_kitchen_id])
-
-  # end 
+  def new
+    @comment = Comment.new
+    @soupkitchen = SoupKitchen.find(params[:soup_kitchen_id])
+  end 
 
   def create
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
-    @comment = Soupkitchen.comments.create(comment_params)
-    
+    @comment = @soupkitchen.comments.create(comment_params)
+   
     redirect_to soupkitchen_path(@soupkitchen)
-    
+    # where does data go -- create, associate with soupkitchen 
+   
   end  
 
  #  def show
  #  end
   
- #  def edit 
- #  end
+  def edit 
+  end
 
- #  def update
- #  end
+  def update
+  end
 
  #  def destroy
  #  end

@@ -10,7 +10,6 @@
 
 <h3>Comments</h3>
 
-
   <%= @soupkitchen.comments.each do |comment| %>
     <p>
     Title: <%= comment.title %>
@@ -34,10 +33,9 @@
 
 	<%= f.submit %>
 <% end %>
-	
+
+	user[:first_name]
   <p>
   <%= link_to 'Back', soupkitchen_path %>
-  <%= link_to 'Edit', edit_soupkitchen_comment_path(@comment) %>
-  <%= link_to "Delete Comment", [soupkitchen.comment, comment],
-      method: :delete, data: {confirm: 'Are you sure?'}  %>
+  
  </p>

@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end 
 
   def authorize
-    redirect_to '/login' unless current_user
+    redirect_to login_path unless current_user
   end 
   # use this as a before_action filter. add flash-notice "something went wrong"
 
