@@ -7,11 +7,13 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @soupkitchen = SoupKitchen.find(params[:soup_kitchen_id])
+    @soupkitchen = SoupKitchen.find(params[:soupkitchen][:id])
+    @comments = @soupkitchen.comments.all
   end 
 
   def create
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
+
     @comment = @soupkitchen.comments.create(comment_params)
    
     redirect_to soupkitchen_path(@soupkitchen)

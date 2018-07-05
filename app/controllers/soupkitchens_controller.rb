@@ -7,6 +7,7 @@ class SoupkitchensController < ApplicationController
 
   def new
   	@soupkitchen = Soupkitchen.new
+
   end
 
 
@@ -21,7 +22,8 @@ class SoupkitchensController < ApplicationController
   end
 
   def show
-     @soupkitchen = Soupkitchen.find(params[:id])
+    @soupkitchen = Soupkitchen.find(params[:id])
+    @comments = @soupkitchen.comments.all
       # @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
 
       # @comment = Soupkitchen.comments.create(comment_params)
