@@ -1,5 +1,4 @@
 class Soupkitchen < ApplicationRecord
-	has_many :users
 	has_many :comments
 	accepts_nested_attributes_for :comments, :allow_destroy => true 
 	# # , reject_if proc { |att| att['name'].blank? }

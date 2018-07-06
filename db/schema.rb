@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_30_030446) do
+ActiveRecord::Schema.define(version: 2018_06_30_025936) do
 
   create_table "comments", force: :cascade do |t|
     t.string "title"
@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 2018_06_30_030446) do
     t.datetime "updated_at", null: false
     t.index ["soupkitchen_id"], name: "index_comments_on_soupkitchen_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "soupkitchen_comments", force: :cascade do |t|
-    t.integer "soupkitchen_id"
-    t.integer "comment_id"
-    t.boolean "admin_approves_comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "soupkitchens", force: :cascade do |t|

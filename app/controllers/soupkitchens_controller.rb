@@ -10,7 +10,6 @@ class SoupkitchensController < ApplicationController
 
   end
 
-
   def create 
   	@soupkitchen = Soupkitchen.new(soupkitchen_params)
   	if @soupkitchen.save
@@ -24,10 +23,10 @@ class SoupkitchensController < ApplicationController
   def show
     binding.pry
     @soupkitchen = Soupkitchen.find(params[:id])
-    # @comments = @soupkitchen.comments.all
+    @comments = @soupkitchen.comments.all
      
 
-    @comment = Soupkitchen.comments.create(comment_params)
+    # @comment = Soupkitchen.comments.create(comment_params)
     
   end
 
@@ -52,7 +51,8 @@ class SoupkitchensController < ApplicationController
 #  private
  
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comment_attributes[:title, :content)
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comment_attributes[:title, :content])
+    
   end
 # # :comment_attributes[:title, :content, :soup_kitchen_id, :user_id]
 #   def comment_params
