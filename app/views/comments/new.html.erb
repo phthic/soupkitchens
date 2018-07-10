@@ -2,19 +2,19 @@
 
 
 
-<%= form_with(model: [ @soupkitchen, @soupkitchen.comments.build ], local: true) do |f| %>
+<%= form_for( @soupkitchen, @comments) do |f| %>
 
 
 <h4>(You must be logged in to add a comment.)</h4>
 	<%= f.hidden_field :soupkitchen_id, value: @soupkitchen.id %>
-	<%= f.hidden_field :user_id, value: @user.id %>
+	
 
 
-	<%= f.label "Title of Comment" %>
+	<%= f.label "Title of Comment" %><br>
 	<%= f.text_field :title %>
 	<br>
-	<%= f.label "Comment" %>
-	<%= f.text_field :content %>
+	<%= f.label "Comment" %><br>
+	<%= f.text_area :content, cols: 40, rows: 15 %>
 	<br>
 	Add Rating (from 1 - 5)
 	<br>
@@ -30,3 +30,4 @@
   <p>
 
 Move to form -- 
+form_with(model: 

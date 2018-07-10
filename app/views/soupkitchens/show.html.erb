@@ -9,18 +9,18 @@ Indoors? <%= @soupkitchen.indoors %><br>
 </p>
 
 <h3>Comments</h3>
-  <%= @soupkitchen.comments.count %> comments <br>
+
+  <%= pluralize(@soupkitchen.comments.count, "comment")%>   <br>
   <% @soupkitchen.comments.each do |comment| %>
-    <p>
-    Title: <%= comment.title %>
-    Comment: <%= comment.content %>
-    </p>
+ 
+     Title: <%= comment.title %><br>
+     Comment: <%= comment.content %><br>
+
   <% end %>
 
 
-
-  <h3><%= link_to "Add Comment", new_soupkitchen_comment_path(@soupkitchen) %></h3>
 <br>
-  <%= link_to 'Back', soupkitchens_path %>
-  
- </p>
+<%= link_to "Add Comment", new_soupkitchen_comment_path(@soupkitchen) %>
+<br>
+<%= link_to 'Back', soupkitchens_path %>
+ 

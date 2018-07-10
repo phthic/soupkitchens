@@ -11,6 +11,27 @@ Phase 2
 
 problems: 
 models aren't working, I can't get them nested. 
- 
+ <%= form_with(model: [ @soupkitchen, @comments ], local: true) do |f| %>
+
+<%= f.hidden_field :user_id, value: @user.id %>
+**
+
+spring stop
+spring binstub --all
+spring start
+rails s
+
+Temp code 
+
+<ul>
+
+  <%= @soupkitchen.comments.each do |comment| %>
+    <li><%= comment.title %> </li>
+    <li><%= comment.content %>
+  <% end %>
+</ul>
 
 
+<%= link_to 'Edit', edit_soupkitchen_comment_path(@comment) %>
+  <%= link_to "Delete Comment", [soupkitchen.comment, comment],
+      method: :delete, data: {confirm: 'Are you sure?'}  %>
