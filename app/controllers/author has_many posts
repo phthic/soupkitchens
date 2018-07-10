@@ -1,0 +1,8 @@
+author has_many posts 
+new_post = @author.posts.build(title: "xxxxxxx")
+
+post belongs_to an author 
+new_author = @post.build_author(name: "Leeroy")
+
+many to many 
+needs the join table 

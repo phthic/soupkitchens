@@ -5,4 +5,3 @@ class Comment < ApplicationRecord
 	# validates_presence_of :title, :content
 end
 
-# belongs_to :user, optional: true 

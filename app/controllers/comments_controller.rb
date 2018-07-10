@@ -1,33 +1,29 @@
 class CommentsController < ApplicationController
-  # before_action :set_comments, only: [:show, :edit, :update, :destroy]
+  # before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
 
   # def index	
   # end 
 
-comment.sk
-comment.sk=
-comment.build_soupkitchen
-comment.create_sk
-comment.create_author!
+# comment.sk
+# comment.sk=
+# comment.build_soupkitchen
+# comment.create_sk
+# comment.create_author!
 
-belongs_to -- needs a build_ prefix (not association.build method used in has many)
+# belongs_to -- needs a build_ prefix (not association.build method used in has many)
 
 
-@comment = comment.build_soupkitchen(soupkitchen_params)
-@soupkitchen = @comment.soupkitchen
+# @comment = comment.build_soupkitchen(soupkitchen_params)
+# @soupkitchen = @comment.soupkitchen
 
   def new
-    @comment = Comment.new
-    @soupkitchen = SoupKitchen.find(params[:soupkitchen][:id])
-    @comments = @soupkitchen.comments.all
+    @soupkitchen = SoupKitchen.find(params[:soupkitchen_id])
+    @comment = @soupkitchen.comments.create(comment_params)
   end 
 
   def create
-    @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
-
-    @comment = @soupkitchen.comments.create(comment_params)
-   
+    @comment = @soupkitchen.comments.create(comment_params)   
     redirect_to soupkitchen_path(@soupkitchen)
     # where does data go -- create, associate with soupkitchen 
    
@@ -42,13 +38,18 @@ belongs_to -- needs a build_ prefix (not association.build method used in has ma
   def update
   end
 
- #  def destroy
- #  end
+  def destroy
+    @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
+    @comment = @soupkitchen.comments.find(params[:id])
+    @comment.destroy
+    redirect_to soupkitchen_path(@soupkitchen)
+  end
 
 	private	
 	def comment_params
 		params.require(:comment).permit(:title, :content)
 	end
+# add user_attributes => ?? 
 
  #  def set_comment
  #    @comment = Comment.find(params[:id])

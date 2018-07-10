@@ -9,7 +9,7 @@ Indoors? <%= @soupkitchen.indoors %><br>
 </p>
 
 <h3>Comments</h3>
-
+  <%= @soupkitchen.comments.count %> comments <br>
   <%= @soupkitchen.comments.each do |comment| %>
     <p>
     Title: <%= comment.title %>
