@@ -10,32 +10,17 @@ Indoors? <%= @soupkitchen.indoors %><br>
 
 <h3>Comments</h3>
   <%= @soupkitchen.comments.count %> comments <br>
-  <%= @soupkitchen.comments.each do |comment| %>
+  <% @soupkitchen.comments.each do |comment| %>
     <p>
     Title: <%= comment.title %>
-    <Comment: <%= comment.content %>
+    Comment: <%= comment.content %>
     </p>
   <% end %>
 
 
-<h3>Add a comment</h3>
 
-<%= form_with(model: [ @soupkitchen, @soupkitchen.comments.build ],local: true) do |f| %>
-
-	<%= f.label "Title of Comment" %>
-	<%= f.text_field :title %>
-	<br>
-	<%= f.label "Comment" %>
-	<%= f.text_field :content %>
-	<br>
-	Add Rating (from 1 - 5)
-	<br>
-
-	<%= f.submit %>
-<% end %>
-
-	user[:first_name]
-  <p>
-  <%= link_to 'Back', soupkitchen_path %>
+  <h3><%= link_to "Add Comment", new_soupkitchen_comment_path(@soupkitchen) %></h3>
+<br>
+  <%= link_to 'Back', soupkitchens_path %>
   
  </p>

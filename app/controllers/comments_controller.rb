@@ -2,8 +2,7 @@ class CommentsController < ApplicationController
   # before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
 
-  # def index	
-  # end 
+
 
 # comment.sk
 # comment.sk=
@@ -18,15 +17,22 @@ class CommentsController < ApplicationController
 # @soupkitchen = @comment.soupkitchen
 
   def new
-    @soupkitchen = SoupKitchen.find(params[:soupkitchen_id])
-    @comment = @soupkitchen.comments.create(comment_params)
+    @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
+    @comment = @soupkitchen.comments.build
   end 
 
   def create
-    @comment = @soupkitchen.comments.create(comment_params)   
-    redirect_to soupkitchen_path(@soupkitchen)
-    # where does data go -- create, associate with soupkitchen 
-   
+    @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
+    @comment = @soupkitchen.comments.build(params[comment_params])  
+    # or (params[comment_params])
+    # params[:comment].permit(:name, :comment)
+    if @comment.save 
+      redirect_to soupkitchen_path(@soupkitchen)
+      # where does data go -- create, associate with soupkitchen 
+    else 
+      render :new
+    end
+
   end  
 
  #  def show

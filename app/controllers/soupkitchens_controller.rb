@@ -19,12 +19,13 @@ class SoupkitchensController < ApplicationController
   	end 
   end
 
- def show
-    @soupkitchen = Soupkitchen.find(params[:id]) 
- end
+  def show
+    @soupkitchen = Soupkitchen.find(params[:id])
+  end
 
 
   def edit 
+
   end
 
   def update

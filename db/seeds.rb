@@ -15,4 +15,8 @@ soupkitchen = Soupkitchen.create(name: 'Face to Face Germantown', address: "109 
 
 soupkitchen = Soupkitchen.create(name: 'Iglesia Cristiana Avivamiento', address: "541 E. Cambria St", zipcode: 19134, indoors: "yes")
 
+click = Soupkitchen.create!(name: "NW")
+click.comments.create(title: "really good place to eat")
+click.comments.create(title: "not so good on Fridays, bad fish")
+click.comments.create(title: "Good for saturday lunch")
 

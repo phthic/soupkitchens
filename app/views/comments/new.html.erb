@@ -1,10 +1,13 @@
-<h2>new comment for <%= @soupkitchen.name %> </h2>
+<h2>New comment for <%= @soupkitchen.name %> </h2>
 
-<%= form_for(@soupkitchen, @soupkitchen.comments.build) do |f| %>
+
+
+<%= form_with(model: [ @soupkitchen, @soupkitchen.comments.build ], local: true) do |f| %>
+
 
 <h4>(You must be logged in to add a comment.)</h4>
 	<%= f.hidden_field :soupkitchen_id, value: @soupkitchen.id %>
-		<%= f.hidden_field :user_id, value: @user.id %>
+	<%= f.hidden_field :user_id, value: @user.id %>
 
 
 	<%= f.label "Title of Comment" %>
@@ -20,5 +23,10 @@
 
 	<%= f.submit %>
 <% end %>
+
+
+
+  user[:first_name]
+  <p>
 
 Move to form -- 
