@@ -6,4 +6,15 @@ class Soupkitchen < ApplicationRecord
 	# accepts_nested_attributes_for :users, :allow_destroy => true
 
 	# validates_presence_of :name
+
+  # scopes go here, before methods 
+  # scope :most_recently_updates, -> { order(updated_at: :desc_).first }
+
+  def self.indoors?
+    if Soupkitchen.indoors == true
+      puts "indoors "
+    else
+      puts "outdoors"
+    end 
+  end
 end

@@ -21,7 +21,6 @@ class SoupkitchensController < ApplicationController
   end
 
   def show
-    binding.pry
     @soupkitchen = Soupkitchen.find(params[:id])
     @comments = @soupkitchen.comments.all
      
@@ -51,7 +50,7 @@ class SoupkitchensController < ApplicationController
 #  private
  
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comment_attributes[:title, :content])
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comment_attributes => [:title, :content])
     
   end
 # # :comment_attributes[:title, :content, :soup_kitchen_id, :user_id]

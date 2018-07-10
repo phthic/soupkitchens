@@ -1,12 +1,5 @@
 require 'test_helper'
 
-class SoupkitchenTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
-  require 'test_helper'
-
 class SoupkitchenCommentTest < ActiveSupport::TestCase
 
   describe Soupkitchen do
@@ -88,6 +81,4 @@ class SoupkitchenCommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
-end
-
 end
