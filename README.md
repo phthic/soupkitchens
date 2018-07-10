@@ -1,24 +1,20 @@
-# README
+# Philly Soupkitchen Finder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a prototype of my Code for Philly food justice project, that's also the Rails Portfolio Project for my Flatiron School FulLStack Developer Program. The idea has a winding history, but this iteration comes from a conversation with an official at the DEpt of Public Health that went something like, "What I really need is a Yelp for soup kitchens and food pantries."
 
-Things you may want to cover:
+## Installation/Development
 
-* Ruby version
+Uses Ruby 2.3.1 and Rails 5.2.0
 
-* System dependencies
+```
+$ bundle install
+$ rake db:migrate
+```
 
-* Configuration
+## Contributions
+Always welcome using pull requests and issues
 
-* Database creation
+## License
+Philly Soupkitchen Finder uses the MIT license
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
