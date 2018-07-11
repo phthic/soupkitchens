@@ -7,11 +7,14 @@ class SoupkitchensController < ApplicationController
 
   def new
   	@soupkitchen = Soupkitchen.new
+    @soupkitchen.comments.build
   end
 
   def create 
-  	@soupkitchen = Soupkitchen.new(soupkitchen_params)
-  	if @soupkitchen.save
+  	@soupkitchen = Soupkitchen.find(params[:soupkitchen_params])
+    @comment = Comment.new
+
+  	if @soupkitchen.comment.save
   		redirect_to soupkitchen_path(@soupkitchen), notice: "New Soup Kitchen was successfully added."
   	else 
   		flash[:notice] = "Something went wrong"
@@ -46,7 +49,7 @@ class SoupkitchensController < ApplicationController
  private
  
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comment_attributes => [:title, :content])
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comments_attributes => [:title, :content])
   end
 
 

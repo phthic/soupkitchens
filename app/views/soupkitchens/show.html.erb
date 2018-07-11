@@ -11,11 +11,12 @@ Indoors? <%= @soupkitchen.indoors %><br>
 <h3>Comments</h3>
 
   <%= pluralize(@soupkitchen.comments.count, "comment")%>   <br>
+
   <% @soupkitchen.comments.each do |comment| %>
  
-     Title: <%= comment.title %><br>
+     <p>Title: <%= comment.title %><br>
      Comment: <%= comment.content %><br>
-
+     Name: comment.user.first_name? </p>
   <% end %>
 
 

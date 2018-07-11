@@ -17,17 +17,19 @@ class CommentsController < ApplicationController
 # @soupkitchen = @comment.soupkitchen
 
   def new
+    # @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
     @comment = @soupkitchen.comments.build
+    # ?? @comment = @soupkitchen.comments.build(params[comment_params])
   end 
 
   def create
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
-    @comment = @soupkitchen.comments.build(params[comment_params])  
-    # or (params[comment_params])
-    # params[:comment].permit(:name, :comment)
+    @comment = Comment.new
+
     if @comment.save 
-      redirect_to soupkitchen_path(@soupkitchen)
+      redirect_to soupkitchen_path(@soupkitchen), flash[:success] = "Your comment was successfully added!"
+
       # where does data go -- create, associate with soupkitchen 
     else 
       render :new
@@ -53,7 +55,7 @@ class CommentsController < ApplicationController
 
 	private	
 	def comment_params
-		params.require(:comment).permit(:title, :content)
+		params.require(:comment).permit(:title, :content, :soupkitchen_id)
 	end
 # add user_attributes => ?? 
 
