@@ -6,13 +6,16 @@ class CommentsController < ApplicationController
   end 
 
   def new
-      @soupkitchen = Soupkitchen.find(id[:soupkitchen_id])
-      @comment = @soupkitchen.comments.build
+      @soupkitchen = Soupkitchen.find(params[:id])
   end 
 
   def create
     @soupkitchen = Soupkitchen.find(id[:soupkitchen_id])
     @comment = @soupkitchen.create_comments(comment_params)
+    if @comment.save
+      redirect_to soupkitchen_comment_path
+    else 
+      render 'soupkitchen(@soupkitchen)'
   end
 
   def show
