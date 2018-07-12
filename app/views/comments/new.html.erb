@@ -3,17 +3,15 @@
 
 <%= form_for([@soupkitchen, @comment]) do |f| %> 
 
-<%= f.hidden_field :soupkitchen_id, value: @soupkitchen.id %>
   
-    <%= f.label "Title of Comment" %><br>
+    <%= f.label :title %><br>
     <%= f.text_field :title %>
     <br>
-    <%= f.label "Comment" %><br>
+    <%= f.label :content %><br>
     <%= f.text_area :content, cols: 40, rows: 15 %>
 
 
   <%= f.submit %>
 <% end %>
-
 
 
