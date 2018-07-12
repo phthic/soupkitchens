@@ -1,50 +1,32 @@
 class CommentsController < ApplicationController
   # before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-
-
-
-# comment.sk
-# comment.sk=
-# comment.build_soupkitchen
-# comment.create_sk
-# comment.create_author!
-
-# belongs_to -- needs a build_ prefix (not association.build method used in has many)
-
-
-# @comment = comment.build_soupkitchen(soupkitchen_params)
-# @soupkitchen = @comment.soupkitchen
+  def index
+    @comments = Comment.all
+  end 
 
   def new
-    # @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
-    @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
-    @comment = @soupkitchen.comments.build
-    # ?? @comment = @soupkitchen.comments.build(params[comment_params])
+      @soupkitchen = Soupkitchen.find(id[:soupkitchen_id])
+      @comment = @soupkitchen.comments.build
   end 
 
   def create
-    @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
-    @comment = Comment.new
+    @soupkitchen = Soupkitchen.find(id[:soupkitchen_id])
+    @comment = @soupkitchen.create_comments(comment_params)
+  end
 
-    if @comment.save 
-      redirect_to soupkitchen_path(@soupkitchen), flash[:success] = "Your comment was successfully added!"
-
-      # where does data go -- create, associate with soupkitchen 
-    else 
-      render :new
-    end
-
-  end  
-
- #  def show
- #  end
+  def show
+    @soupkitchen = Soupkitchen.find(id[:soupkitchen_id])
+    @soupkitchen.comments.build
+  end
   
-  def edit 
-  end
+  # def edit 
+  #   @soupkitchen.comments.build
 
-  def update
-  end
+  # end
+
+  # def update
+  # end
 
   def destroy
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
@@ -55,12 +37,33 @@ class CommentsController < ApplicationController
 
 	private	
 	def comment_params
-		params.require(:comment).permit(:title, :content, :soupkitchen_id)
+		params.require(:comment).permit(:title, :content, :soupkitchen_id])
 	end
-# add user_attributes => ?? 
+
 
  #  def set_comment
  #    @comment = Comment.find(params[:id])
  #  end 
 end
 
+
+
+  # def new
+  #   # @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
+  #   @soupkitchen = Soupkitchen.new
+  #   @comment = @soupkitchen.comments.build(params[:comment])
+  #     # params[comment_params])
+  # end 
+
+  # def create
+  #   @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
+  #   @comment = Comment.new
+
+  #   if @comment.save 
+  #     redirect_to soupkitchen_comment_path(@comment), notice: "Your comment was successfully added!"
+  #   else 
+   
+  #     render :new, notice: "something went wrong"
+  #   end
+
+  # end  

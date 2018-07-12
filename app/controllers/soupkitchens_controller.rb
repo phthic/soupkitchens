@@ -15,10 +15,9 @@ class SoupkitchensController < ApplicationController
     @comment = Comment.new
 
   	if @soupkitchen.comment.save
-  		redirect_to soupkitchen_path(@soupkitchen), notice: "New Soup Kitchen was successfully added."
-  	else 
-  		flash[:notice] = "Something went wrong"
-  		render :new
+  		redirect_to soupkitchen_comment_path(@comment), notice: "New Soup Kitchen was successfully added."
+  	else
+  		render :new, notice: "Something went wrong"
   	end 
   end
 
@@ -28,7 +27,7 @@ class SoupkitchensController < ApplicationController
 
 
   def edit 
-
+    @soupkitchen.comments.build
   end
 
   def update

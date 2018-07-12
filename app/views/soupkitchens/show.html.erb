@@ -16,12 +16,16 @@ Indoors? <%= @soupkitchen.indoors %><br>
  
      <p>Title: <%= comment.title %><br>
      Comment: <%= comment.content %><br>
-     Name: comment.user.first_name? </p>
+
+    <br>
+     </p>
   <% end %>
 
 
 <br>
+
 <%= link_to "Add Comment", new_soupkitchen_comment_path(@soupkitchen) %>
 <br>
 <%= link_to 'Back', soupkitchens_path %>
  
+ <br>add:  Name: comment.user.first_name?
