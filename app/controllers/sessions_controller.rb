@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
 
 
   def create
-    @user = User.find_by(first_name: params[:user][:first_name]) 
+    @user = User.find_by(first_name: params[:user][:first_name]) || User.find_or_create_from_auth_hash(auth_hash)
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      # flash.now[:success] = "Welcome #{@user.first_name}."
-      redirect_to user_path(@user) 
+      flash.now[:success] = "Welcome #{@user.first_name}."
+      redirect_to root_path 
     else 
       # try flash.now[:danger] = "try again. "
       render :new
@@ -33,4 +33,7 @@ private
   # def sessions_params
   #  params.require(:user).permit(:first_name, :last_name, :password)
   #  end
+  def auth_hash
+    request.env['omniauth.auth']
+  end 
 end
