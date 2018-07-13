@@ -30,7 +30,12 @@ Temp code
     <li><%= comment.content %>
   <% end %>
 </ul>
+'
 
+<%= link_to "Signup", signup_path %>
+<%= link_to "Signin", signin_path %>
+<%= link_to "Logout", logout_path, method: :destroy %>
+'
 
 <%= link_to 'Edit', edit_soupkitchen_comment_path(@comment) %>
   <%= link_to "Delete Comment", [soupkitchen.comment, comment],

@@ -18,7 +18,10 @@ def create
   end
 
   def destroy
+    # why are there so many ways to logout? which is best? 
     # session.clear, or use log_out from sessions helper 
+    # or  User.find(session[:user_id]).destroy      
+    session[:user_id] = nil   
     session.delete(:user_id)
     @current_user = nil
     redirect_to root_path

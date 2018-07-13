@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
     # puts @comment.errors.full_messages 
      #Not getting added , so counter doesn't increase, and 1 new one replaces the last new one. then when I reloaded view, all new comments were gone. 
     if @comment.save
-      redirect_to soupkitchen_path(@soupkitchen), notice: "Added comment"
+      redirect_to soupkitchen_path(@soupkitchen), notice: "Thanks! We added your comment."
+      # any way to make the flash stand out more? 
     else 
       render :new, notice: "Something went wrong, try again."
     end

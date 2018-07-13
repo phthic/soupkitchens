@@ -24,7 +24,8 @@
             <% if current_user %>  
                 <p class="navbar-brand"> Welcome <%= current_user.first_name %>  
                    <%= link_to "Home", root_path %>
-                   <%= link_to "Logout", logout_path, :session, method: :destroy %>
+                   <%= link_to "Logout", logout_path, method: :delete %>
+                   <!-- tried button_to -->
                 </p>
                 
             <% else %>  
