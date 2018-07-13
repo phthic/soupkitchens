@@ -5,10 +5,11 @@ class SessionsController < ApplicationController
 
 
 def create
-    @user = User.find_by(first_name: params[:user][:first_name]
+    @user = User.find_by(first_name: params[:user][:first_name] # add .downcase ?? 
+
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] =@user.id
-      flash[:success] = "Welcome #{@user.first_name}."
+      flash.now[:success] = "Welcome #{@user.first_name}."
       redirect_to user_path(@user) 
     else 
       render :new, :alert => "Try again."

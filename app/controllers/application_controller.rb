@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include SessionsHelper
 
   helper_method :current_user
 
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end 
 
-  def current_user 
+  def current_user # can be moved to Sessions Helper 
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
      # find(session[:user_id) if session[:user_id])
   end 

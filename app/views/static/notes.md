@@ -134,6 +134,7 @@ end
 <% end %>
 
 
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
 
 <%= form_for([@soupkitchen, @comment]) do |f| %> 
