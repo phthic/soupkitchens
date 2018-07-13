@@ -11,16 +11,16 @@ class CommentsController < ApplicationController
 
 # HELP ON THIS -- permitted: false? Why won't it save? 
   def create
-   
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
     @comment = @soupkitchen.comments.build(comment_params)
-    # @comment.valid?
-    puts @comment.errors.full_messages 
+    @comment.user_id = current_user.id
+    # @comment.valid? or try: (params[:comment])
+    # puts @comment.errors.full_messages 
      #Not getting added , so counter doesn't increase, and 1 new one replaces the last new one. then when I reloaded view, all new comments were gone. 
     if @comment.save
-      redirect_to soupkitchen_path(@soupkitchen)
+      redirect_to soupkitchen_path(@soupkitchen), notice: "Added comment"
     else 
-      render "soupkitchens/show", notice: "Something went wrong, try again."
+      render :new, notice: "Something went wrong, try again."
     end
     # HELP when it renders, it doesn't add the count. 
   end
@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
   private 
   def comment_params
-    params.require(:comment).permit(:title, :content, :soupkitchen_id)
+    params.require(:comment).permit(:title, :content, :soupkitchen_id, :user_id)
   end
 
 #   # def set_comment
