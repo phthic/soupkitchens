@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
+    # or !current_user.nil? 
   end 
 
   def current_user # can be moved to Sessions Helper 
