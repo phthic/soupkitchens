@@ -11,6 +11,7 @@ Indoors? <%= @soupkitchen.indoors %><br>
 <h3>Comments</h3>
 
   <%= pluralize(@soupkitchen.comments.count, "comment")%>   <br>
+  <!--make this into a scope method in comments -->
 
   <% @soupkitchen.comments.each do |comment| %>
  
