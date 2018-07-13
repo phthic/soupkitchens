@@ -17,9 +17,7 @@ class UsersController < ApplicationController
 	  if @user.save
 		session[:user_id] = @user.id #can be replaced with login_in @user (from the Sessions Helper) 
 		flash.now[:success] = "Welcome #{@user.first_name}."
-		redirect_to user_path(@user) #is this right? user may want to go back to 
-			#home. Or -- answer a few questions, to become a super user and expert 
-			#that page should have links to soupkitchens and 
+		redirect_to soupkitchens_path #go to index, add My profile tab to layout page
 	  else 
 		render :new, :alert => "Try again."
   	  end
@@ -28,5 +26,6 @@ class UsersController < ApplicationController
   private
 	def user_params
       params.require(:user).permit( :first_name, :last_name, :email, :mobile_number, :zipcode, :about_me, :password)
+      # add :password_confirmation? 
     end
 end
