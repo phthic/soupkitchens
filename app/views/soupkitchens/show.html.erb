@@ -1,7 +1,7 @@
 <p>
 <%= @soupkitchen.name %><br>
 <%= @soupkitchen.address %><br>
-<%= @soupkitchen.city %><br>
+<%= @soupkitchen.city if @soupkitchen.city %><br>
 <%= @soupkitchen.state %><br>
 <%= @soupkitchen.zipcode %><br>
 <%= @soupkitchen.phone %><br>
@@ -16,8 +16,9 @@ Indoors? <%= @soupkitchen.indoors %><br>
  
      <p>Title: <%= comment.title %><br>
      Comment: <%= comment.content %><br>
+     Name: <%= comment.user.first_name %>
     
-
+    <br>
     <br>
      </p>
   <% end %>
@@ -25,7 +26,7 @@ Indoors? <%= @soupkitchen.indoors %><br>
 
 <br>
 
-<%= link_to "add comment", new_soupkitchen_comment_path(@soupkitchen) %>
+<%= link_to "Add Comment", new_soupkitchen_comment_path(@soupkitchen) %>
 <br>
 <%= link_to 'All Soupkitchens', soupkitchens_path %>
  
