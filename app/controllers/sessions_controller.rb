@@ -6,16 +6,29 @@ class SessionsController < ApplicationController
 
 
   def create
-    @user = User.find_by(first_name: params[:user][:first_name]) || User.find_or_create_from_auth_hash(auth_hash)
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-      flash.now[:success] = "Welcome #{@user.first_name}."
-      redirect_to root_path 
-    else 
-      # try flash.now[:danger] = "try again. "
-      render :new
-      # , :alert => "Try again."
+    
+    @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      u.name = auth['info']['name']
+      u.email = auth['info']['email']
+      u.image = auth['info']['image']
     end
+
+    session[:user_id] = @user.id
+
+    render 'welcome/home'
+    
+    # @user = User.find_or_create_from_auth_hash(auth_hash) 
+
+    # @user = User.find_by(first_name: params[:user][:first_name]) 
+    # if @user && @user.authenticate(params[:user][:password]) 
+    #   session[:user_id] = @user.id
+    #   flash.now[:success] = "Welcome #{@user.first_name}."
+    #   redirect_to root_path 
+    # else 
+    #   # try flash.now[:danger] = "try again. "
+    #   render :new
+    #   # , :alert => "Try again."
+    # end
   end
 
   def destroy
