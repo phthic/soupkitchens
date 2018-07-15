@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :email, uniquness: :true
 
  def self.find_or_create_by_omniauth(auth_hash)
-    self.where(:email => auth_hash.["info"]["email"]).first_or_create do |user|
+    self.where(:email => auth_hash["info"]["email"]).first_or_create do |user|
       user.password = SecureRandom.hex
     end 
   end
@@ -36,8 +36,4 @@ end
    #    secret: auth_hash.credentials.secret
    #  )
    #  user
-# private
-#   def omni_hash
-#     request.env['omniauth.auth']
-#   end 
-# end
+\

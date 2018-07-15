@@ -20,12 +20,30 @@ class SessionsController < ApplicationController
   # raise auth_hash.inspect
 
   def create
- 
     if auth_hash = request.env["omniauth.auth"]
       user = User.find_or_create_by_omniauth(auth_hash)
-       session[:user_id] = user.id
-        redirect_to root_path
+      session[:user_id] = user.id
+      redirect_to root_path
     
+
+    else   #if regular login 
+      user = User.find_by(email: params[:email]) 
+        if user && user.authenticate(params[:password]) 
+          # Was params[:user][:email]) , trying [email]
+         session[:user_id] = user.id
+         # flash.now[:success] = "Welcome #{@user.first_name}."
+         redirect_to root_path
+ 
+        else 
+          # try flash.now[:danger] = "try again. "
+          render :new
+          # , :alert => "Try again."
+        end
+      end
+    end
+
+
+
       # This whole branch can be refactored through .first_or_create 
       # oauth_email = request.env["omniauth.auth"]["info"]["email"]
       # if user = User.find_by(:email => oauth_email) #if your system knows this person 
@@ -43,22 +61,6 @@ class SessionsController < ApplicationController
        #      raise user.errors.full_messages.inspect
        #    end
        # end
-
-    else   #if regular login 
-      user = User.find_by(email: params[:user][:email]) 
-        if user && user.authenticate(params[:user][:password]) 
-         session[:user_id] = user.id
-         # flash.now[:success] = "Welcome #{@user.first_name}."
-         redirect_to root_path
- 
-        else 
-          # try flash.now[:danger] = "try again. "
-          render :new
-          # , :alert => "Try again."
-        end
-      end
-    end
-
     # @user = User.find_or_create_from_auth_hash(auth_hash) 
     # current_user = @user.id
     # redirect_to root_path
