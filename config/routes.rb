@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: "logout"
 
-  get '/auth/:twitter/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
 
   resources :users
   resources :soupkitchens do

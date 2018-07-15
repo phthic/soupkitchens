@@ -22,4 +22,8 @@ class User < ApplicationRecord
 #   def name(first_name, last_name)
 #     {first_name} + {last_name}
 #   end 
+private
+  def auth_hash
+    request.env['omniauth.auth']
+  end 
 end
