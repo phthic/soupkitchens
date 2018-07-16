@@ -1,5 +1,6 @@
 
-<%= form_for @soupkitchen do |f| %>
+<%= form_for(@soupkitchen) do |f| %>
+
 
     <%= f.label :name %>
     <%= f.text_field :name %>               
@@ -24,11 +25,7 @@
     <br>
 
     <%= f.label :phone %>
-    <%= f.text_field :phone %>
-    <br>
-
-    <%= f.label :indoors?  %>
-    <%= f.check_box :indoors, :checked => true %>
+    <%= f.telephone_field :phone %>
     <br>
 
     <%= f.submit %>

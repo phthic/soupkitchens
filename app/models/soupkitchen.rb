@@ -3,7 +3,7 @@ class Soupkitchen < ApplicationRecord
 	accepts_nested_attributes_for :comments
   # ,reject_if: :all_blank, :allow_destroy => true 
   has_many :users, through: :comments
-  validates_presence_of :name, :address, :city, :state, :zipcode, :phone, :indoors
+  validates_presence_of :name, :address, :city, :state, :zipcode, :phone
   
 	# # , reject_if proc { |att| att['name'].blank? }
 	# # try: :reject_if => :all_blank

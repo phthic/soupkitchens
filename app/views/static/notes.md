@@ -34,7 +34,7 @@ Temp code
 
 <%= link_to "Signup", signup_path %>
 <%= link_to "Signin", signin_path %>
-<%= link_to "Logout", logout_path, method: :destroy %>
+<%= link_to "Logout", logout_path, method: :destroy %>WW
 '
 
 <%= link_to 'Edit', edit_soupkitchen_comment_path(@comment) %>

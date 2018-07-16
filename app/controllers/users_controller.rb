@@ -11,16 +11,18 @@ class UsersController < ApplicationController
 			redirect_to root_path
 		end 
 	end 
+
 #signup
 	def create
 	  @user = User.new(user_params)
 	  if @user.save
-		session[:user_id] = @user.id #can be replaced with login_in @user (from the Sessions Helper) 
-		flash.now[:success] = "Welcome #{@user.first_name}."
-		redirect_to soupkitchens_path #go to index, add My profile tab to layout page
+		  session[:user_id] = @user.id #can be replaced with login_in @user (from the Sessions Helper) 
+		  flash.now[:notice] = "Welcome #{@user.first_name}."
+		  redirect_to soupkitchens_path #go to index, add My profile tab to layout page
 	  else 
-		render :new, :alert => "Try again."
-  	  end
+      
+		  render :new, :notice => "Try again."
+  	end
 	end
 
   private

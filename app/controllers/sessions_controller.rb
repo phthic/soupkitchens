@@ -17,27 +17,29 @@ class SessionsController < ApplicationController
 
 # -- using devise with omniauth abstracts all of this. 
 
-  # raise auth_hash.inspect
+  # raise auth_hash.inspect 
 
   def create
     if auth_hash = request.env["omniauth.auth"]
+
       user = User.find_or_create_by_omniauth(auth_hash)
+
       session[:user_id] = user.id
-      redirect_to root_path
-    
+      # flash.now[:success] = "Welcome #{@user.first_name}."
+
+      redirect_to root_path 
+  
 
     else   #if regular login 
       user = User.find_by(email: params[:email]) 
         if user && user.authenticate(params[:password]) 
           # Was params[:user][:email]) , trying [email]
          session[:user_id] = user.id
-         # flash.now[:success] = "Welcome #{@user.first_name}."
+         # flash.now[:notice] = "Welcome #{@user.first_name}."
          redirect_to root_path
  
-        else 
-          # try flash.now[:danger] = "try again. "
-          render :new
-          # , :alert => "Try again."
+        else
+          render :new, :notice => "try again; have you already signed up?"
         end
       end
     end
@@ -83,9 +85,9 @@ class SessionsController < ApplicationController
 #     # session.delete(:user_id)
 #     # @current_user = nil
 
-  protected
-    def auth_hash
-      request.env['omniauth.auth']
-    end 
+  # protected
+  #   def auth_hash
+  #     request.env['omniauth.auth']
+  #   end 
   
 end
