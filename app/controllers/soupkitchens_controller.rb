@@ -50,7 +50,7 @@ class SoupkitchensController < ApplicationController
  private
   def soupkitchen_params
     params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode)
-  end
+  end 
        # :comments_attributes => [:title, :content])
 
   # def set_soupkitchen

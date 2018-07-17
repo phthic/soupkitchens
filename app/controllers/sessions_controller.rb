@@ -4,20 +4,6 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
-# oath2 flow
-# 1. user goes to /auth/github on my site
-# 2. omniauth rdirects them to gh, providing gh with the key and secret that identifies my app, so gh knows about it. 
-# 3. User logs in/authenticates with GH
-# 4. GH redirects them back to my app -- this is the callback URL -- and provides my app with a secret code that represents the user on github. App doesn't yet know the data. 
-#5. my app sends that secret code back to github
-# 6. GH confirms that the code came from gh and that my app received it. 
-# # 7. GH sends back the user data. It's a 2-step handshake. Prevents "man in the middle attack".
-# 8. I check if the user exists in my system, if so, log them in 
-# 7. otherwise, create a user based on their email. 
-
-# -- using devise with omniauth abstracts all of this. 
-
-  # raise auth_hash.inspect 
 
   def create
   
@@ -26,7 +12,7 @@ class SessionsController < ApplicationController
       user = User.find_or_create_by_omniauth(auth_hash)
 
       session[:user_id] = user.id
-      # flash.now[:success] = "Welcome #{@user.first_name}."
+      flash.now[:success] = "Welcome #{@user.first_name}."
 
       redirect_to root_path 
   

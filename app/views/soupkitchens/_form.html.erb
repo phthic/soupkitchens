@@ -1,6 +1,6 @@
 
 <%= form_for(@soupkitchen) do |f| %>
-
+    <% f.hidden_field :added_by, :value => current_user %>
 
     <%= f.label :name %>
     <%= f.text_field :name %>               
@@ -12,11 +12,11 @@
 
 
     <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, value: 'Philadelphia' %>
     <br>
     	
     <%= f.label :state %>
-    <%= f.text_field :state %>
+    <%= f.text_field :state, value: 'PA' %>
     <br>
 
 
@@ -27,6 +27,10 @@
     <%= f.label :phone %>
     <%= f.telephone_field :phone %>
     <br>
+
+
+    <%= f.label :added_by %>
+    <%= f.text_field :added_by, value: @current_user %>
 
     <%= f.submit %>
 <% end %>		
