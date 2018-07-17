@@ -4,11 +4,11 @@ class User < ApplicationRecord
   has_many :soupkitchens, through: :comments
 
 
-  # validates  :first_name, presence: true, length: {maximum: 30}
+  validates  :first_name, presence: true, length: {maximum: 30}
   # validates :last_name, presence: true, _confirmation: true, length: {maximum: 30}
   # validates :password, presence: true, length: {minimum: 8},  message: "Try again with eight letters/numbers/characters or more." }
   # validates_email_format_of :email, :message => "Try again on the email."
-  # validates :email, uniqueness: :true
+  validates :email, uniqueness: :true
   # validates_numericality_of :mobile_number, :zipcode
 
 

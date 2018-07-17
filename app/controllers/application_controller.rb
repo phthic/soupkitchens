@@ -19,9 +19,4 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end 
 
-  def authorize
-    redirect_to login_path unless current_user
-  end 
-  # use this as a before_action filter. add flash-notice "something went wrong"
-
 end
