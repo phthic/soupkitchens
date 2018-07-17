@@ -1,3 +1,21 @@
+  
+
+<% if @soupkitchen.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+            <%= pluralize(@soupkitchen.errors.count, "error") %> prohibited this user from being saved:
+        </h2>
+
+        <ul>
+            <% @soupkitchen.errors.full_messages.each do |message| %>
+                <li>
+                    <%= message %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
 
 <%= form_for(@soupkitchen) do |f| %>
     <% f.hidden_field :added_by, :value => current_user %>
