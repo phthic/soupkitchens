@@ -13,8 +13,7 @@ class CommentsController < ApplicationController
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])
     @comment = @soupkitchen.comments.build(comment_params)
     @comment.user_id = current_user.id
-   
-   binding.pry
+
     if @comment.save
       redirect_to soupkitchen_path(@soupkitchen), notice: "Thanks! We added your comment."
     else 

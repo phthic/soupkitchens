@@ -1,5 +1,7 @@
 <% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
+    <div class="notice">
+        <%= flash[:notice] %>
+    </div>
 <% end %>  
 
 <% if @user.errors.any? %>
@@ -29,11 +31,11 @@
     <br>
 
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
     <br>
      
     <%= f.label :mobile_number %>
-    <%= f.text_field :mobile_number %>
+    <%= f.telephone_field :mobile_number %>
     <br>
 
     <%= f.label :password %>
