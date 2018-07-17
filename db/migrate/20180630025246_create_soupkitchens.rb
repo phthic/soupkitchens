@@ -6,11 +6,12 @@ class CreateSoupkitchens < ActiveRecord::Migration[5.2]
     	t.string :address
     	t.string :city
     	t.string :state
-    	t.integer :zipcode
-    	t.integer :phone
-    	t.boolean :indoors
-    	
-
+    	t.string :zipcode
+    	t.string :phone
+    	t.string :indoors
+      t.string :hours
+      t.string :website
+    
       t.timestamps
     end
   end

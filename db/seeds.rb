@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-soupkitchen = Soupkitchen.create(name: 'Philly Restart', address: "19th St and Vine St", zipcode: 19103, indoors: "yes")
+soupkitchen = Soupkitchen.create(name: 'Philly Restart', address: "19th St and Vine St", zipcode: 19103, indoors: "indoors")
 
-soupkitchen = Soupkitchen.create(name: 'Second Pilgrim Baptist Church', address: "554 N. 15th St", zipcode: 19130, indoors: "yes")
+soupkitchen = Soupkitchen.create(name: 'Second Pilgrim Baptist Church', address: "554 N. 15th St", zipcode: 19130, indoors: "indoors")
 
-soupkitchen = Soupkitchen.create(name: 'Face to Face Germantown', address: "109 E. Price St", zipcode: 19114, indoors: "yes")
+soupkitchen = Soupkitchen.create(name: 'Face to Face Germantown', address: "109 E. Price St", zipcode: 19114, indoors: "indoors")
 
-soupkitchen = Soupkitchen.create(name: 'Iglesia Cristiana Avivamiento', address: "541 E. Cambria St", zipcode: 19134, indoors: "yes")
+soupkitchen = Soupkitchen.create(name: 'Iglesia Cristiana Avivamiento', address: "541 E. Cambria St", zipcode: 19134, indoors: "indoors")
 
 click = Soupkitchen.create!(name: "NW")
 click.comments.create(title: "really good place to eat")

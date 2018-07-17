@@ -5,19 +5,19 @@
 <%= @soupkitchen.state  %><br>
 <%= @soupkitchen.zipcode %><br>
 <%= @soupkitchen.phone  %><br>
-Indoors? <%= @soupkitchen.indoors? %><br>
+<%= @soupkitchen.indoors %><br>
 </p>
 
 <h3>Comments</h3>
 
-  <%= pluralize(@soupkitchen.comments.count, "comment")%>   <br>
+  <%= pluralize(@soupkitchen.comments.count, "comment")%>   <br> <br> <br>
   <!--make this into a scope method in comments -->
 
   <% @soupkitchen.comments.each do |comment| %>
- 
-     <p>Title: <%= comment.title %><br>
-     Comment: <%= comment.content %><br>
-     Name: <%= comment.user.first_name %>
+    
+     <p><%= comment.title %>, by <%= comment.user.first_name %><br>
+     <%= comment.content %><br>
+    
     
     <br>
     <br>
@@ -27,7 +27,7 @@ Indoors? <%= @soupkitchen.indoors? %><br>
 
 <br>
 
-<%= link_to "Add Comment", new_soupkitchen_comment_path(@soupkitchen) %>
+<%= link_to "Add a comment about #{@soupkitchen.name}", new_soupkitchen_comment_path(@soupkitchen) %>
 <br>
-<%= link_to 'All Soupkitchens', soupkitchens_path %>
+<%= link_to 'See all soupkitchens', soupkitchens_path %>
  
