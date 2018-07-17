@@ -6,8 +6,13 @@ class Soupkitchen < ApplicationRecord
 
   validates_presence_of :name, :address, :city, :state, :zipcode, :phone, :indoors, :hours, :website
 
-  validates :name, uniqueness: true
+  validates_uniqueness_of :name, :address, :website
+  validates_numericality_of :zipcode, :phone
+  validates_associated :comments
+end
   
+
+
 	# # , reject_if proc { |att| att['name'].blank? }
 	# # try: :reject_if => :all_blank
 	# accepts_nested_attributes_for :users, :allow_destroy => true
@@ -25,4 +30,4 @@ class Soupkitchen < ApplicationRecord
   #     puts "No, outdoors."
   #   end 
   # end
-end
+

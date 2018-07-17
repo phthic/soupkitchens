@@ -6,14 +6,12 @@ class User < ApplicationRecord
 
   validates  :first_name, presence: true, length: {maximum: 30}
   validates :last_name, presence: true, _confirmation: true, length: {maximum: 30}
-  validates :password, presence: true, length: {minimum: 8}
-  validates_email_format_of :email, :message => "try again on the email."
+  validates :password, presence: true, length: {minimum: 8},  message: "Try again with eight letters/numbers/characters or more." }
+  validates_email_format_of :email, :message => "Try again on the email."
   validates :email, uniqueness: :true
-  validates :mobile_number, numericality: true
-  validates :zipcode, numericality: true
+  validates_numericality_of :mobile_number, :zipcode
 
  def self.find_or_create_by_omniauth(auth_hash)
-
     self.where(:email => auth_hash["info"]["email"]).first_or_create do |user|
       user.password = SecureRandom.hex
       user.first_name = auth_hash["info"]["name"]
@@ -22,12 +20,11 @@ class User < ApplicationRecord
     end 
   end
 end
-   # 
-  # Will sessions be able to use this? 
+ 
 
 # #fix
-#   def name(first_name, last_name)
-#     {first_name} + {last_name}
+#   def change_to_first_name(name)
+#     --> split into two, take whatever's in front of the space ? 
 #   end 
 
 

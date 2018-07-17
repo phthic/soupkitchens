@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
     # or !current_user.nil? 
   end 
 
-  def current_user # can be moved to Sessions Helper 
+  def current_user 
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-     # find(session[:user_id) if session[:user_id])
+    
   end 
 
   def authorize
