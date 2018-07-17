@@ -55,3 +55,9 @@ body {
   height: 290px;
   text-align: left;
 }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: blue;
+  display: table;
+}
