@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   # raise auth_hash.inspect 
 
   def create
+  
     if auth_hash = request.env["omniauth.auth"]
 
       user = User.find_or_create_by_omniauth(auth_hash)
@@ -39,7 +40,7 @@ class SessionsController < ApplicationController
          redirect_to root_path
  
         else
-          render :new, :notice => "try again; have you already signed up?"
+          render "user/new", :notice => "try again; have you already signed up?"
         end
       end
     end

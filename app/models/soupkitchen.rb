@@ -3,6 +3,7 @@ class Soupkitchen < ApplicationRecord
 	accepts_nested_attributes_for :comments
   # ,reject_if: :all_blank, :allow_destroy => true 
   has_many :users, through: :comments
+  
   validates_presence_of :name, :address, :city, :state, :zipcode, :phone
   
 	# # , reject_if proc { |att| att['name'].blank? }
@@ -15,10 +16,11 @@ class Soupkitchen < ApplicationRecord
   # scope :most_recently_updates, -> { order(updated_at: :desc_).first }
 
   def self.indoors?
+    binding.pry
     if Soupkitchen.indoors == true
-      puts "indoors "
+      puts "Yes"
     else
-      puts "outdoors"
+      puts "No, outdoors."
     end 
   end
 end

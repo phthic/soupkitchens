@@ -18,12 +18,14 @@ class UsersController < ApplicationController
 	  if @user.save
 		  session[:user_id] = @user.id #can be replaced with login_in @user (from the Sessions Helper) 
 		  flash.now[:notice] = "Welcome #{@user.first_name}."
-		  redirect_to soupkitchens_path #go to index, add My profile tab to layout page
+		  redirect_to soupkitchens_path #go to index, add My profile tab to layout page. comes up with the current_user menu
 	  else 
       
 		  render :new, :notice => "Try again."
   	end
 	end
+
+
 
   private
 	def user_params
