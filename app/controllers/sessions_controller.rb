@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
          redirect_to root_path
  
         else
-          render "user/new", :notice => "try again; have you already signed up?"
+          render signin_path, :notice => "try again; have you already signed up?"
         end
       end
     end

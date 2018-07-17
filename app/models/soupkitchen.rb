@@ -22,12 +22,3 @@ end
   # scopes go here, before methods 
   # scope :most_recently_updates, -> { order(updated_at: :desc_).first }
 
-  # def self.indoors?
-
-  #   if self.indoors == "true"
-  #     puts "Yes"
-  #   else
-  #     puts "No, outdoors."
-  #   end 
-  # end
-

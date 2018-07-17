@@ -1,38 +1,38 @@
 class SoupkitchensController < ApplicationController
 	# before_action :set_soupkitchen, only [:show, :edit, :update, :destroy]
-
+  # add before_action for being logged in new, create, edit, update destroy 
   def index
   	@soupkitchens = Soupkitchen.all
   end 
 
   def new
-  	@soupkitchen = Soupkitchen.new
-    @soupkitchen.comments.build
+    @soupkitchen = Soupkitchen.new
+    flash.now[:notice] = "You must be logged in to add a new soupkitchen." if !logged_in?
   end
 
   def create 
-   
-  	@soupkitchen = Soupkitchen.new(params[:soupkitchen_params])
-
-  	if @soupkitchen.save
-    
-  		redirect_to soupkitchens_path, notice: "The Soup Kitchen #{@soupkitchen.name} was successfully added."
-  	else
-      flash.now[:notice] = "Something went wrong"
-  		render :new
-  	end 
+   if logged_in? 
+      @soupkitchen = Soupkitchen.new(soupkitchen_params)
+      if @soupkitchen.save
+        flash.now[:notice] = "#{@soupkitchen.name} was successfully added to the Soupkitchens in list. Will you leave the first comment?"
+    	  redirect_to soupkitchen_path(@soupkitchen)
+      else
+        flash.now[:notice] = "Something went wrong"
+    		render :new
+    	end 
+    end
   end
 
   def show
     @soupkitchen = Soupkitchen.find(params[:id])
   end
 
-
   def edit 
-    @soupkitchen.comments.build
+      @soupkitchen = Soupkitchen.find(params[:id])
   end
 
   def update
+    @soupkitchen = Soupkitchen.find(params[:id])
   	@soupkitchen.update(soupkitchen_params)
   	if @soupkitchen.save
   		redirect_to soupkitchen_path(@soup_kitchen), notice: "Changes to #{@soupkitchen.name} were successful."
@@ -48,11 +48,10 @@ class SoupkitchensController < ApplicationController
   end 
 
  private
- 
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :phone, :indoors, :comments_attributes => [:title, :content])
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode)
   end
-
+       # :comments_attributes => [:title, :content])
 
   # def set_soupkitchen
   #   @soupkitchen = Soupkitchen.find(params[:id])
