@@ -5,7 +5,7 @@ module SessionsHelper
     redirect_to root_path 
   end 
 
-  def log_out
+  def log_out(user)
     session.delete(:user_id)
     @current_user = nil
   end 
