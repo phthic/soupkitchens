@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
       @comment = @soupkitchen.comments.build(comment_params)
       @comment.user_id = current_user.id
       if @comment.save 
-        flash.now[:notice] = "Thanks! We added your comment."
+        flash[:notice] = "Thanks! We added your comment."
         redirect_to soupkitchen_path(@soupkitchen)
       else 
         flash.now[:notice] = "Something went wrong, try again."

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       user = User.find_or_create_by_omniauth(auth_hash)
 
       session[:user_id] = user.id
-      flash.now[:success] = "Welcome #{@user.first_name}."
+      flash[:notice] = "Welcome #{@user.first_name}."
 
       redirect_to root_path 
   
@@ -22,14 +22,22 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password]) 
           # Was params[:user][:email]) , trying [email]
          session[:user_id] = user.id
-         # flash.now[:notice] = "Welcome #{@user.first_name}."
+         flash[:notice] = "Welcome #{@user.first_name}."
          redirect_to root_path
  
         else
-          render signin_path, :notice => "try again; have you already signed up?"
+          flash.now[:notice] = "try again; have you already signed up?"
+          render signin_path
         end
       end
     end
+
+
+    def destroy
+      session.delete(:user_id)
+      redirect_to root_path
+    end 
+  end
 
 
 
@@ -60,11 +68,6 @@ class SessionsController < ApplicationController
     # end
 
     
-
-  def destroy
-    session.delete(:user_id)
-    redirect_to root_path
-  end 
  # why are there so many ways to logout? which is best? 
 #     # session.clear, or use log_out from sessions helper 
 #     # or  User.find(session[:user_id]).destroy      
@@ -77,4 +80,3 @@ class SessionsController < ApplicationController
   #     request.env['omniauth.auth']
   #   end 
   
-end

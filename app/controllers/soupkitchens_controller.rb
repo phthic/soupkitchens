@@ -14,7 +14,7 @@ class SoupkitchensController < ApplicationController
    if logged_in? 
       @soupkitchen = Soupkitchen.new(soupkitchen_params)
       if @soupkitchen.save
-        flash.now[:notice] = "#{@soupkitchen.name} was successfully added to the Soupkitchens in list. Will you leave the first comment?"
+        flash[:notice] = "#{@soupkitchen.name} was successfully added to the Soupkitchens in list. Will you leave the first comment?"
     	  redirect_to soupkitchen_path(@soupkitchen)
       else
         flash.now[:notice] = "Something went wrong"
