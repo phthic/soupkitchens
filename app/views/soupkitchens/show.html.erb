@@ -15,13 +15,12 @@
 
   <% @soupkitchen.comments.each do |comment| %>
     
-     <p><%= comment.title %>, by <%= comment.user.first_name %><br>
-     <%= comment.content %><br>
-    
-    
-    <br>
-    <br>
-     </p>
+     <p>
+        Comment by: <%= comment.user.first_name %> <br>
+        <%= comment.title %>  <br>
+         <%= comment.content %>   <br>
+        <br>
+    </p>
   <% end %>
 
 

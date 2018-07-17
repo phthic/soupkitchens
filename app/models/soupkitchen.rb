@@ -4,11 +4,11 @@ class Soupkitchen < ApplicationRecord
   # ,reject_if: :all_blank, :allow_destroy => true 
   has_many :users, through: :comments
 
-  validates_presence_of :name, :address, :city, :state, :zipcode, :phone, :indoors, :hours, :website
+  # validates_presence_of :name, :address, :city, :state, :zipcode, :phone, :indoors, :hours, :website
 
-  validates_uniqueness_of :name, :address, :website
-  validates_numericality_of :zipcode, :phone
-  validates_associated :comments
+  # validates_uniqueness_of :name, :address, :website
+  # validates_numericality_of :zipcode, :phone
+  # validates_associated :comments
 end
   
 
