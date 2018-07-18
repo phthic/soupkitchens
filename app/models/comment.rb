@@ -11,15 +11,15 @@ class Comment < ApplicationRecord
   # make this into a scope method == pluralize(@soupkitchen.comments.count, "comment")%> 
   # user -submittable attribute -- comments.
   # validations 
-  def self.show_rating
-    self.comment.rating.to_i.times do 
-      <span class="glyphicon glyphicon-star"></span>
-      end
+  # def self.show_rating
+  #   rating = self.comment.rating.to_i.times do 
+  #     <span class="glyphicon glyphicon-star"></span>
+  #     end
             
-    self.comment.blank_stars.times do
-      <span class="glyphicon glyphicon-star-empty"></span>      
-    end
-  end 
+  #   self.comment.blank_stars.times do
+  #     <span class="glyphicon glyphicon-star-empty"></span>      
+  #   end
+  # end 
 
 
   def self.comments_quantity

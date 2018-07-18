@@ -1,3 +1,7 @@
+
+ <h3> As of <%= Date.today.to_s(:long) %> there are <%= @comment.comments_quantity %> crowdsourced reviews of Philadelphia's soupkitchens!.</h3>
+
+<h1>hello</h1>
 <h2>Write a comment about <%= @soupkitchen.name %> </h2>
 
 <%= form_for([@soupkitchen, @comment]) do |f| %> 

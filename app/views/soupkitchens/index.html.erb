@@ -7,10 +7,12 @@
 		<%= soupkitchen.id %><br>
 		<%= soupkitchen.name %><br>
 		<%= soupkitchen.address %><br>
-		<%= link_to "See Comments", soupkitchen_path(soupkitchen) %>
+
+		<%= link_to "See reviews and add your own", soupkitchen_path(soupkitchen) %>
 	    <br>
 	 </p>
 	<% end %>	
+
 </ul>
   
-<%= link_to "Add New Soup Kitchen", new_soupkitchen_path %>
+<%= link_to "Add new soup kitchen", new_soupkitchen_path %>
