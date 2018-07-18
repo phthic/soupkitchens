@@ -8,65 +8,31 @@ class SessionsController < ApplicationController
   def create
   
     if auth_hash = request.env["omniauth.auth"]
-
-      user = User.find_or_create_by_omniauth(auth_hash)
-
-      session[:user_id] = user.id
-      flash[:notice] = "Welcome #{@user.first_name}."
-
+      @user = User.find_or_create_by_omniauth(auth_hash)
+      session[:user_id] = @user.id
       redirect_to root_path 
   
-
     else   #if regular login 
-      user = User.find_by(email: params[:email]) 
-        if user && user.authenticate(params[:password]) 
+      @user = User.find_by(email: params[:email]) 
+      
+      if @user && @user.authenticate(params[:password]) 
           # Was params[:user][:email]) , trying [email]
-         session[:user_id] = user.id
-         flash[:notice] = "Welcome #{@user.first_name}."
+         session[:user_id] = @user.id
          redirect_to root_path
  
-        else
+      else
           flash.now[:notice] = "try again; have you already signed up?"
-          render signin_path
-        end
+          render :new
       end
     end
-
-
-    def destroy
-      session.delete(:user_id)
-      redirect_to root_path
-    end 
   end
 
-
-
-      # This whole branch can be refactored through .first_or_create 
-      # oauth_email = request.env["omniauth.auth"]["info"]["email"]
-      # if user = User.find_by(:email => oauth_email) #if your system knows this person 
+  def destroy
+    session.delete(:user_id)
+    redirect_to root_path
+  end 
+end
       
-      #    session[:user_id] = @user.id
-      #    redirect_to root_path
-       # else
-       
-       #  # create a user, we know they are but it's their first time here. 
-       #   user = User.new(:email => oauth_email, password => SecureRandom.hex)
-       #   if user.save
-       #      session[:user_id] = @user.id
-       #      redirect_to root_path
-       #    else
-       #      raise user.errors.full_messages.inspect
-       #    end
-       # end
-    # @user = User.find_or_create_from_auth_hash(auth_hash) 
-    # current_user = @user.id
-    # redirect_to root_path
-    # do |u|
-    #   u.name = auth['info']['name']
-    #   u.email = auth['info']['email']
-    #   u.image = auth['info']['image']
-    # end
-
     
  # why are there so many ways to logout? which is best? 
 #     # session.clear, or use log_out from sessions helper 

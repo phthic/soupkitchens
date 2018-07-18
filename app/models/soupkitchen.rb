@@ -8,6 +8,9 @@ class Soupkitchen < ApplicationRecord
   validates_uniqueness_of :name, :address
   validates_numericality_of :zipcode, length: {maximum: 5}
   
+
+
+
 end
   
 

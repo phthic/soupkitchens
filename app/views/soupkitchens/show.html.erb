@@ -19,10 +19,11 @@
     
      <p>
         Comment by: <%= comment.user.first_name %> <br>
-        <%= comment.title %>  <br>
-         <%= comment.content %>   <br>
+        <strong><%= comment.title %></strong>  <br>
+        <%= comment.content %>   <br>
+        <%= comment.show_rating %>
         <br>
-    </p>
+     </p>
   <% end %>
 
 

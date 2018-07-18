@@ -5,11 +5,9 @@ class User < ApplicationRecord
 
 
   validates  :first_name, presence: true, length: {maximum: 30}
-  # validates :last_name, presence: true, _confirmation: true, length: {maximum: 30}
+  validates :last_name, presence: true, _confirmation: true, length: {maximum: 30}
   validates :password, presence: true, length: {minimum: 8}
   validates :email, uniqueness: :true
-  validates_numericality_of :mobile_number
-
 
  def self.find_or_create_by_omniauth(auth_hash)
     self.where(:email => auth_hash["info"]["email"]).first_or_create do |user|
