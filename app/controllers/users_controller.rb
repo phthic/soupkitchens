@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def show
     if logged_in?
       @user = User.find(params[:id])
+      @soupkitchens = Soupkitchen.all
     else
       redirect_to root_path
     end 

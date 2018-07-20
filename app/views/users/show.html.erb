@@ -2,8 +2,8 @@
 
 <p>Name: <%= @user.first_name %> <%= @user.last_name %> </p>
 
- <%= @user.soupkitchens.name %>
-Comments
+
+<h4> Reviews: </h4>
 <div>
 <% @user.comments.each do |comment| %>
     <%= comment.title %>
@@ -16,12 +16,28 @@ Comments
 <% end %>
 </div>
 
-  NExt: FIGURE OUT WHERE EACH COMMENT LIVES and link to it.  
- --no not a comment -- but they can go to soupkitchens.commented_on and rate them -- 
+<h4> Soupkitchens that you've reviewed. Click to rate. </h4>
 
+<% @user.soupkitchens.each do |soupkitchen| %>
+    <%= link_to soupkitchen.name, soupkitchen_path(soupkitchen) %>
+    <br>
+<% end %>
+</div>
+<br>
+
+  NExt: FIGURE OUT WHERE EACH COMMENT LIVES and link to it.  
+ --no not a comment -- but they can go to soupkitchens.commented_on and rate them --add this feature to soupkitchen show page 
+ --Can add an edit link to Reviews, too.  
+
+Which controller can handle this? Rating? soupkitchen.rating - 
+ f.label :rating, "How many stars would you give this soupkitchen? (1-5, 5 being best." %>
+    <%= f.number_field :rating, in: 0..5 
+    <br>
+add comment on which sk? HOW 
+add link to rate 
 link_to_if(@user == current_user)
  
  <br>
 <%= link_to "home", root_path %><br>
-<%= link_to "log out", logout_path %>
+<%= link_to "back", users_path %>
 

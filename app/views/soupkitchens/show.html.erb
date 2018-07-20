@@ -12,22 +12,31 @@
 
 <h3>Comments</h3>
 
-  <%= pluralize(@soupkitchen.comments.count, "comment")%>   <br> <br> <br>
+<%= pluralize(@soupkitchen.comments.count, "comment")%>   <br> <br> <br>
 
 
-  <% @soupkitchen.comments.each do |comment| %>
-    
-     <p>
-        Comment by: <%= comment.user.first_name %> <br>
-        <strong><%= comment.title %></strong>  <br>
-        <%= comment.content %>   <br>
-      
-        <br>
-     </p>
-  <% end %>
+<% @soupkitchen.comments.each do |comment| %>
 
+<p>
+  Comment by: <%= comment.user.first_name %> <br>
+  <strong><%= comment.title %></strong>  <br>
+  <%= comment.content %>   <br>
 
+    <br>
+    <% if current_user = comment.user_id%>
+        soupkitchen.rating (add this to table )
+        <%= form_for @soupkitchen do |soupkitchen| %>
+
+        <%= label :rating, "How many stars would you give #{ @soupkitchen.name} ? (1-5, 5 being best.)" %>
+        <%= number_field :rating, in: 0..5 %>
+
+        <% end %>  
+      <% end %> 
+   <br>
+</p>
+<% end %>
 <br>
+
 
 <%= link_to "Add a comment about #{@soupkitchen.name}", new_soupkitchen_comment_path(@soupkitchen) %>
 <br>
