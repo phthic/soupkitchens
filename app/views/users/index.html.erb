@@ -2,6 +2,6 @@
 
 <% @users.each do |user| %>
   <p>
-     <%= user.first_name %> <br> 
+     <%= link_to user.first_name, user_path(user) %> <br> 
   </p>
 <% end %>
