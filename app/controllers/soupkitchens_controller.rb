@@ -14,7 +14,7 @@ class SoupkitchensController < ApplicationController
    if logged_in? 
       @soupkitchen = Soupkitchen.new(soupkitchen_params)
       if @soupkitchen.save
-        flash[:notice] = "#{@soupkitchen.name} was successfully added to the Soupkitchens in list. Will you leave the first comment?"
+        flash[:notice] = "#{@soupkitchen.name} was successfully added to the Soupkitchens in list. Will you leave the first review?"
     	  redirect_to soupkitchen_path(@soupkitchen)
       else
         flash.now[:notice] = "Something went wrong"
@@ -37,7 +37,6 @@ class SoupkitchensController < ApplicationController
   	if @soupkitchen.save
   		redirect_to soupkitchen_path(@soup_kitchen), notice: "Changes to #{@soupkitchen.name} were successful."
   	else 
-  		flash.now[:notice] = "Something went wrong"
   		render :edit
   	end 
   end 
@@ -49,9 +48,8 @@ class SoupkitchensController < ApplicationController
 
  private
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode)
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :rating)
   end 
-       # :comments_attributes => [:title, :content])
 
   # def set_soupkitchen
   #   @soupkitchen = Soupkitchen.find(params[:id])

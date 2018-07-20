@@ -1,6 +1,7 @@
-if current_user = @soupkitchen.added_by
+<h4>Thanks for rating the soup kitchen.</h4>
 
-  <%= render 'form' %>
+<h3><%= @soupkitchen.rating %> stars! </h3>
 
-else 
- <%= Only the creater can edit this %>
+  </br>
+Back to <%= link_to @soupkitchen.name, soupkitchen_path(@soupkitchen) %><br>
+<%= link_to 'Review other soupkitchens', soupkitchens_path %>

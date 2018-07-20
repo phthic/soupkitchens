@@ -57,11 +57,19 @@ body {
 }
 
 .field_with_errors {
+  font-size: normal;
   padding: 2px;
   background-color: blue;
   display: table;
 }
 
+
 .notice {
   color: green;
+}
+
+.rating {
+  font-size: 3;
+  font-weight: normal;
+
 }
