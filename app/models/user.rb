@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :soupkitchens, through: :comments
 
-  validates  :first_name, presence: true, length: {maximum: 30}
+  validates  :first_name, presence: true, length: {maximum: 30}, uniqueness:
   validates :last_name, presence: true, _confirmation: true, length: {maximum: 30}
   validates :password, presence: true, length: {minimum: 8}
   validates :email, uniqueness: :true

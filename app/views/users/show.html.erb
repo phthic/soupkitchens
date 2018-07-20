@@ -2,6 +2,7 @@
 
 <p>Name: <%= @user.first_name %>  <%= @user.last_name %></p>
 
+
 <% if @user.about_me %>
   <%= @user.about_me %>
 <% else %>
@@ -10,21 +11,15 @@
 
 <h4> Your Reviews: </h4>
 <p>
+
     <% @user.comments.each do |comment| %>
+
         <%= comment.title %>
         <%= comment.content %>
+
     <% end %>
 </p>
-<h4> Your Last Review was: </h4>
-    <%= most_recently_updated %>
 
-    -----
-    TRYING THIS, to list the soupkitchen joined to the user/comment, so the user can see it and edit or review 
-      @user.soupkitchen_ids.each do |soupkitchen_id|
-        soupkitchen.name 
-    ___end_
- <br>   
- 
 <%= link_to "home", root_path %><br>
 <%= link_to "back", users_path %>
 

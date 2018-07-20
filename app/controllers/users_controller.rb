@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     if logged_in?
       @user = User.find(params[:id])
       @soupkitchens = Soupkitchen.all
+      @comments = Comment.all
     else
       redirect_to root_path
     end 
