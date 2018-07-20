@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
 	def new
 		@user = User.new
-	end 
-
-	def show
-		if logged_in?
-			@user = User.find(params[:id])
-		else
-			redirect_to root_path
-		end 
 	end 
 
 #signup
@@ -24,7 +20,13 @@ class UsersController < ApplicationController
   	end
 	end
 
-
+  def show
+    if logged_in?
+      @user = User.find(params[:id])
+    else
+      redirect_to root_path
+    end 
+  end 
 
   private
 	def user_params

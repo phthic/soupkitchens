@@ -1,1 +1,7 @@
-(will show all users, authorization = admin only)
+(Phase 2: this will be admin only)
+
+<% @users.each do |user| %>
+  <p>
+     <%= user.first_name %> <br> 
+  </p>
+<% end %>

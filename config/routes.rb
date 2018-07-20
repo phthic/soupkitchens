@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: "logout"
 
   get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/comments/most_recently_updated', to: 'comments#
+  # most_recently_updated'
 
   resources :users
   resources :soupkitchens do

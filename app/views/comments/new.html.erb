@@ -1,8 +1,5 @@
-
- <h3> As of <%= Date.today.to_s(:long) %> there are <%= @comment.comments_quantity %> crowdsourced reviews of Philadelphia's soupkitchens!.</h3>
-
 <h1>hello</h1>
-<h2>Write a comment about <%= @soupkitchen.name %> </h2>
+<h2>write a comment about <%= @soupkitchen.name %> </h2>
 
 <%= form_for([@soupkitchen, @comment]) do |f| %> 
 
@@ -14,7 +11,7 @@
     <%= f.text_area :content, cols: 40, rows: 12 %>
     <br>
 
-    <%= f.label :rating, "Rating, from 1-5, 5 being best." %>
+    <%= f.label :rating, "How many stars would you give this soupkitchen? (1-5, 5 being best). Click here." %>
     <%= f.number_field :rating, in: 0..5 %>
     <br>
     

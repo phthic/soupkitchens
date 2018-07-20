@@ -3,10 +3,18 @@ class Comment < ApplicationRecord
 	belongs_to :soupkitchen
   validates_presence_of :title, :content
   
+  # scope :most_recently_updated -> {order[updated_at: :desc}.first } 
 
-  def self.blank_stars 
-    5 - self.rating.to_i
-  end 
+
+  # def most_recently_updated
+  #   @comments = Comment.most_recently_updated
+  # end 
+
+
+
+  # def self.blank_stars 
+  #   5 - self.rating.to_i
+  # end 
 
   # make this into a scope method == pluralize(@soupkitchen.comments.count, "comment")%> 
   # user -submittable attribute -- comments.
@@ -22,9 +30,8 @@ class Comment < ApplicationRecord
   # end 
 
 
-  def self.comments_quantity
-    number= self.Comment.all.count
-    puts "There are #{number} comments and growing!" 
-  end
+  # def self.comments_quantity
+  #  self.Comment.all.count
+  # end
 end
 

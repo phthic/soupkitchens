@@ -9,4 +9,18 @@ Phase 2
 
 Tuesday: 
 
-  
+from comments new 
+  <!--  <h3> As of <%= Date.today.to_s(:long) %> there are <%= @comment.comments_quantity %> crowdsourced reviews of Philadelphia's soupkitchens!.</h3> -->
+
+          <% comment.rating.to_i.times do  %>
+              <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          
+          <% comment.blank_stars.times do %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+        
+          <% end %>
+
+          
+    <%= f.label :rating %>
+    <%= f.range_field :rating, in: 0..5%>

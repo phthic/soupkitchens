@@ -25,6 +25,7 @@ class CommentsController < ApplicationController
     end
   end
 
+
   # def show
   # ADD THIS< WITH EDIT? edit link_to goes to this show page., if proper 
   # end 
