@@ -1,17 +1,26 @@
-<h2>Hey <%= @user.first_name %>. Thanks for adding your profile. </h2>
-
+<h2>Hey <%= @user.first_name %>! </h2>
 
 <%= @user.about_me %><br>
+  
+<% if @user.about_me %>
+  <h3> Thanks for adding your profile. Need to make any changes? </h3>
 
-Need to make any changes? 
+      <%= form_for @user do |f| %>
 
-<%= form_for @user do |f| %>
+         <%= f.label :about_me %>
+         <%= f.text_area :about_me %> <br>
+         <%= f.submit "save changes"%>
 
-    <%= f.label :about_me %>
-    <%= f.text_area :about_me %>
-    <br>
+      <% end %>
+<% else %>
+   <h3> Add your profile. </h3>
+    <%= form_for @user do |f| %>
 
-    <%= f.submit "Save changes."%>
+         <%= f.label :about_me %>
+         <%= f.text_area :about_me %><br>
+         <%= f.submit "save"%>
+
+    <% end %>
 <% end %>
 
 
