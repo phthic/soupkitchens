@@ -3,7 +3,7 @@
 <%= @user.about_me %><br>
   
 <% if @user.about_me %>
-  <h3> Thanks for adding your profile. Need to make any changes? </h3>
+  <h3> Great job. Need to make any changes? </h3>
 
       <%= form_for @user do |f| %>
 
@@ -13,7 +13,7 @@
 
       <% end %>
 <% else %>
-   <h3> Add your profile. </h3>
+   <h3> Tell us something about yourself. </h3>
     <%= form_for @user do |f| %>
 
          <%= f.label :about_me %>
@@ -25,4 +25,4 @@
 
 
 <%= link_to "home", root_path %><br>
-<%= link_to "back", users_path %>
+<%= link_to "back to your profile page", user_path(@user) %>

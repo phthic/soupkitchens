@@ -10,15 +10,23 @@
 <% end %>
 
 <h4> Your Reviews: </h4>
-<p>
 
     <% @user.comments.each do |comment| %>
-
-        <%= comment.title %>
+  
+        <li>
+          <strong><%= comment.title %></strong> 
         <%= comment.content %>
+        ( <%= comment.soupkitchen.id  )
+      </li>
+    <% end %> 
 
-    <% end %>
-</p>
+<br>
+You've rated these soupkitchens: 
+  <% @user.soupkitchens.uniq.each do |soupkitchen| %>
+    <li><%= soupkitchen.name %></li>
+    <% end %><br>
+        
+<br>
 
 <%= link_to "home", root_path %><br>
 <%= link_to "back", users_path %>

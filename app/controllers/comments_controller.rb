@@ -2,9 +2,13 @@ class CommentsController < ApplicationController
   # before_action :set_comment, only: [:show]
   
   def index
+    @soupkitchens = Soupkitchen.all
+    @comments = Comment.all
+
   end
 
   def new
+  
     @comment = Comment.new  
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])  
     flash.now[:notice] = "You must be logged in to leave a comment."  if !logged_in?
@@ -27,12 +31,12 @@ class CommentsController < ApplicationController
 
 
   # def show
-  # ADD THIS< WITH EDIT? edit link_to goes to this show page., if proper 
+  # Show all comments (with their soupkitchen), for admin use 
   # end 
 
   private 
   def comment_params
-    params.require(:comment).permit(:title, :content, :rating, :soupkitchen_id, :user_id)
+    params.require(:comment).permit(:title, :content, :soupkitchen_id, :user_id)
   end
 
 #   # def set_comment

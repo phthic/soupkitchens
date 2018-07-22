@@ -57,7 +57,7 @@ body {
 }
 
 .field_with_errors {
-  font-size: normal;
+  font-size: 12px;
   padding: 2px;
   background-color: blue;
   display: table;
@@ -69,7 +69,8 @@ body {
 }
 
 .rating {
-  font-size: 3;
+  font-size: 12px;
   font-weight: normal;
+  border: 3px solid blue;
 
 }

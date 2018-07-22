@@ -1,8 +1,6 @@
-<% @soupkitchen.comments.each do |comment} %>
-  <div><%= soupkitchen.name
-  _________________________
-
-  <%= soupkitchen.comment.title %>
+<%= @comments.each do |comment} %>
+  <li><%= soupkitchen.name %>
+  ___
+  <%= soupkitchen.comment.title %></li>
   </div>
 <% end %>
-

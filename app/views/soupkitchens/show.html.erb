@@ -1,13 +1,14 @@
 <p>
-<%= @soupkitchen.name %><br>
-<%= @soupkitchen.address %><br>
-<%= @soupkitchen.city  %><br>
-<%= @soupkitchen.state  %><br>
-<%= @soupkitchen.zipcode %><br>
-<%= @soupkitchen.phone  %><br>
+<%= @soupkitchen.name %> <br>
+<%= @soupkitchen.address %> <br>
+<%= @soupkitchen.city  %> <br>
+<%= @soupkitchen.state  %> <br>
+<%= @soupkitchen.zipcode %> <br>
+<%= @soupkitchen.phone  %> <br>
 </p>
 
-<h3><%= pluralize(@soupkitchen.comments.count, "Review")%></h3> <br>
+
+<h3><%= pluralize(@soupkitchen.comments.count, "Review") %></h3> <br>
 
 <% @soupkitchen.comments.each do |comment| %>
     <p>
@@ -16,17 +17,18 @@
         <%= comment.content %> 
         <br>
     </p> 
-    <div class="rating"  
+    <div> 
       <% if current_user.id == comment.user_id %>
-          <h4>This is your review. Want to add a rating? (1-5, 5's the best.)</h4>
-
-          <%= form_for(@soupkitchen) do  |f| %>
           
+          <div class="rating"
+            <h4>This is your review. Want to add a rating? (1-5, 5's the best.)</h4>
+
+            <%= form_for(@soupkitchen) do  |f| %>
               <p>
-                  <%= f.label :rating, "Rate #{@soupkitchen.name}." %>
+                  <%= f.label :rating, "Rate #{@soupkitchen.name}:" %>
                   <%= f.number_field :rating, in: 0..5 %>
                   
-                  <%= f.submit %>
+                  <%= f.submit "Send" %> </div> 
               </p>
           <% end %>    
       <% end %> 
