@@ -13,19 +13,18 @@
 
     <% @user.comments.each do |comment| %>
   
-        <li>
-          <strong><%= comment.title %></strong> 
-        <%= comment.content %>
-        ( <%= comment.soupkitchen.id  )
-      </li>
-    <% end %> 
+        <li> <%= comment.soupkitchen.name %>: <strong><%= comment.title %> </strong> <%= comment.content %> </li>
+       
+     
+   <% end %>
 
 <br>
 You've rated these soupkitchens: 
-  <% @user.soupkitchens.uniq.each do |soupkitchen| %>
-    <li><%= soupkitchen.name %></li>
-    <% end %><br>
-        
+    <% @user.soupkitchens.uniq.each do |soupkitchen| %>
+       <li><%= soupkitchen.name %></li>
+    <% end %>
+
+<br>     
 <br>
 
 <%= link_to "home", root_path %><br>
