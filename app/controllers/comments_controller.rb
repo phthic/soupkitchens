@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
   end
 
-  def new
+  def new -- this fritzes if not logged in 
   
     @comment = Comment.new  
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])  
