@@ -12,16 +12,16 @@
 <h4> Your Reviews: </h4>
 
     <% @user.comments.each do |comment| %>
-  
-        <li> <%= comment.soupkitchen.name %>: <strong><%= comment.title %> </strong> <%= comment.content %> </li>
-       
-     
-   <% end %>
+        <p> About <%= comment.soupkitchen.name %>, you said "" <strong><%= comment.title %> </strong> <%= comment.content %>"" </p>
+    <% end %>
 
 <br>
-You've rated these soupkitchens: 
+
+You've visited and rated these soupkitchens: 
     <% @user.soupkitchens.uniq.each do |soupkitchen| %>
+
        <li><%= soupkitchen.name %></li>
+    
     <% end %>
 
 <br>     
