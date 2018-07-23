@@ -1,4 +1,3 @@
-  
 
 <% if @soupkitchen.errors.any? %>
     <div id="error_explanation">
@@ -48,7 +47,7 @@
 
 
     <%= f.label :added_by %>
-    <%= f.text_field :added_by, value: @current_user %>
-
+    <%= f.text_field :added_by, value: @current_user_name %>
+<% binding.pry %>
     <%= f.submit %>
 <% end %>		

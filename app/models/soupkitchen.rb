@@ -9,6 +9,12 @@ class Soupkitchen < ApplicationRecord
   validates_numericality_of :zipcode, length: {maximum: 5}
   
 
+  def self.current_user_name(current_user)
+    binding.pry
+    @current_user = self.user.id 
+    @current_user_name = self.user.first_name 
+  end 
+  # feels like this can be refactored? but not sure how; 
 
 
 end
