@@ -8,14 +8,17 @@ Sunday night:
 
 7. fix bugs 
 
-FIX: soupkitchens/new -- added by  is an object, should be a name
+-FIX: soupkitchens/new -- added by  is an object, should be a name
     prob is in soupkitchens, fix is in user.rb -> move it to soupkitchens.rb, even though it feels like a user thing. Could also move it to a helper file, but okay for now. 
 
 -FIX: soupkitchens/show  --> make a review. BUG FIXED. 
 profile? users/show -- CHECK from other entry 
 -CHECK IF BUG: if not logged in, comments.new fritzes FIXED
 -GETS stuck on current_user.id -- because it doesn't need ID? YUP. FIXED
-FIX SCOPE ISSUE 
+FIX -- Users/index -- how to delete duplicates
+
+-FIX SCOPE ISSUE DONE --maybe chck again 
+ FIX view issue related to scope  
 
 
 
