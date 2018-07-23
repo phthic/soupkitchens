@@ -18,13 +18,14 @@ profile? users/show -- CHECK from other entry
 FIX -- Users/index -- how to delete duplicates
 FIX -- find a way that a user can click to see comments stats, all on one page. 
 
--FIX SCOPE ISSUE DONE --maybe chck again 
+-FIX SCOPE ISSUE DONE --maybe check again 
  FIX view issue related to scope  
   Tried to do this, no luck yet: 
         <p> The person who has left the most reviews is <%= @user.most_comments %>
           scope :most_comments, -> { User.all.comments.count } 
+--> spent the morning playing with scopes, scheduled 1:1 
 
-
+FIX -- email - I used email_field - it checks for @ and for somthing after @ but still a bad email entry can get by. 
 
 Know expected return data of methods -- 
 
