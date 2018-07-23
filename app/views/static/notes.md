@@ -9,8 +9,9 @@ Sunday night:
 7. 
 
 FIX: soupkitchens/new -- added by  is an object, should be a name
-FIX: soupkitchens/show  --> make a review 
+FIX: soupkitchens/show  --> make a review. BUG FIXED. 
 profile? users/show 
+CHECK IF BUG: if not logged in, comments.new fritzes 
 
 
 
