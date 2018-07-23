@@ -27,6 +27,9 @@ class CommentsController < ApplicationController
         flash.now[:notice] = "Something went wrong, try again."
         render :new
       end
+    else
+      flash.now[:notice] = "Gotta' log in to leave a review."
+      redirect_to root_path
     end
   end
 
