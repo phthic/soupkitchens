@@ -3,6 +3,16 @@
 
 <p>The last review was for <%= @comments.most_recently_updated %>.</p>
 
-(Note: schedule 1:1 on making more powerful scopes -- last 5, most popular, etc, etc., and transferring code that works in console into scope syntax. )
+<p>Most recent comments 
+
+  <%  @comments.recent.each_with_index do |comment, index| %>
+  <p><%= index + 1 %>.<%= comment.title %><%= comment.content %></p>
+  <% end %>
+
+
+
+</p>
+
+
  
     

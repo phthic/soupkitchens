@@ -2,7 +2,7 @@
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>  
-
+<% binding.pry %>
 <% if @user.errors.any? %>
     <div id="error_explanation">
         <h2>
@@ -28,20 +28,4 @@
      <%= submit_tag "Sign In" %>
 
  <% end %>
-<!-- 
 
-
-
-
-<%= form_with scope: :session, url: signin_path do |form| %>
-  
-  First Name <%= form.text_field :first_name %><br>
-
-  <%= form.label(:email, "Email") %>
-  <%= form.email_field :email %><br>
-
-  <%= form.label(:password, "Password") %>
-  <%= form.password_field :password %><br>
-
-  <%= form.submit "Sign in" %> -->
- <!-- <% end %> -->
