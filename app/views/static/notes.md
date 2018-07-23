@@ -1,13 +1,24 @@
-Phase 2
-1. add in from round 1, little by little. 
-2. static#home, add Login
-3. create user model/controller to signup/login/logout
-4. layout -- add a navbar 
-5. save often, do little bits
-6. add color to the flash, so it stands out from the  sk description after comment posts. 
+Sunday night: 
+1. Blog
+2. do README, pick a license 
+3. check/add helper methods and partials 
+4. record working on this
+5. commit often 
+6. make a video walkthrough -- zoom, then put on youtube and get url 
+
+7. 
+
+FIX: soupkitchens/new -- added by  is an object, should be a name
+FIX: soupkitchens/show  --> make a review 
+profile? users/show 
 
 
-Tuesday: 
+
+
+Know expected return data of methods -- 
+
+
+
 
 from comments new 
   <!--  <h3> As of <%= Date.today.to_s(:long) %> there are <%= @comment.comments_quantity %> crowdsourced reviews of Philadelphia's soupkitchens!.</h3> -->
