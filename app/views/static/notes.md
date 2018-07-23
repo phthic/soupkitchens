@@ -1,10 +1,10 @@
 Sunday night: 
-1. Blog
-2. do README, pick a license 
-3. check/add helper methods and partials 
+1. MONDAY: Blog
+2. do README, pick a license DONE
+3. MONDAY: check/add helper methods and partials, esp partials. 
 4. record working on this:   DONE, in Flatiron folder on desktop 
-5. commit often 
-6. make a video walkthrough -- zoom, then put on youtube and get url 
+5. commit often WORKING ON IT!
+6. MONDAY: make a video walkthrough -- zoom, then put on youtube and get url 
 
 7. fix bugs 
 
@@ -16,9 +16,13 @@ profile? users/show -- CHECK from other entry
 -CHECK IF BUG: if not logged in, comments.new fritzes FIXED
 -GETS stuck on current_user.id -- because it doesn't need ID? YUP. FIXED
 FIX -- Users/index -- how to delete duplicates
+FIX -- find a way that a user can click to see comments stats, all on one page. 
 
 -FIX SCOPE ISSUE DONE --maybe chck again 
  FIX view issue related to scope  
+  Tried to do this, no luck yet: 
+        <p> The person who has left the most reviews is <%= @user.most_comments %>
+          scope :most_comments, -> { User.all.comments.count } 
 
 
 
@@ -39,6 +43,4 @@ from comments new
         
           <% end %>
 
-          
-    <%= f.label :rating %>
-    <%= f.range_field :rating, in: 0..5%>
+     

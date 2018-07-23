@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 8}
   validates :email, uniqueness: :true
 
+ # scope :most_comments, -> { User.all.comments.count } 
+ # -works in console with a specific user but not here. How would I get a specific top user in there? 
+
 
  def self.find_or_create_by_omniauth(auth_hash)
     self.where(:email => auth_hash["info"]["email"]).first_or_create do |user|

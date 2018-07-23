@@ -3,23 +3,21 @@ class Comment < ApplicationRecord
 	belongs_to :soupkitchen
   validates_presence_of :title, :content
   
-  scope :most_recently_updated, -> {where(:updated_at => :desc)} 
 
+  scope :most_recently_updated, -> { Comment.last.soupkitchen.name } 
+  scope :date_today, -> { Date.today } # add regex 
+  # scope :comment_count -> { Comment.count }
 
-  # def most_recently_updated
-  #   @comments = Comment.most_recently_updated
-     # Comment.where(order.first, desc)
-  # end 
-
-
+  # scope :most_recently_updated, ->(comment){where(:updated_at => :desc)} 
+  # scope :most_recently_updated, -> (Comment){ where(created_at: :desc) }
+    
+  
 
   # def self.blank_stars 
   #   5 - self.rating.to_i
   # end 
 
-  # make this into a scope method == pluralize(@soupkitchen.comments.count, "comment")%> 
-  # user -submittable attribute -- comments.
-  # validations 
+  
   # def self.show_rating
   #   rating = self.comment.rating.to_i.times do 
   #     <span class="glyphicon glyphicon-star"></span>
@@ -31,8 +29,5 @@ class Comment < ApplicationRecord
   # end 
 
 
-  # def self.comments_quantity
-  #  self.Comment.all.count
-  # end
 end
 

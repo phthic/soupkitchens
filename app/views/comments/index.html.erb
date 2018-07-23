@@ -1,8 +1,8 @@
-<p>As of <%= Date.today %>, there are 
-<%= @comments.count %> reviews.
+<p>As of <%= @comments.date_today %>, there are 
+<%= @comments.count %> reviews and <%= @users.count %> reviewers and <%= @soupkitchens.count %> soupkitchens.
 
-<p>The last review was 
+<p>The last review was for <%= @comments.most_recently_updated %>.</p>
 
-  <%= @comments.most_recently_updated { |comment| comment.title } %>
-  (FIx this to display correctly)
+(Note: schedule 1:1 on making more powerful scopes -- last 5, most popular, etc, etc., and transferring code that works in console into scope syntax. )
+ 
     
