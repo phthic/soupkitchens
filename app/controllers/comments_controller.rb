@@ -7,9 +7,7 @@ class CommentsController < ApplicationController
 
   end
 
-  def new 
-    # -- this fritzes if not logged in 
-  
+  def new   
     @comment = Comment.new  
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])  
     flash.now[:notice] = "You must be logged in to leave a comment."  if !logged_in?
@@ -25,7 +23,7 @@ class CommentsController < ApplicationController
         redirect_to soupkitchen_path(@soupkitchen)
       else 
         flash.now[:notice] = "Something went wrong, try again."
-        render :new
+        render 'soupkitchens/show'
       end
     else
       flash.now[:notice] = "Gotta' log in to leave a review."
