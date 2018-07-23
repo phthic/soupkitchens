@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
   validates_presence_of :title, :content
   
   # scope :most_recently_updated -> { order(updated_at: :desc) } 
-  scope :most_recently_updated, -> {where(:updated_at => :desc) } 
+  scope :most_recently_updated, -> {where(:updated_at => :desc)} 
 
 
   # def most_recently_updated
