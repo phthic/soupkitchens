@@ -10,7 +10,10 @@ class CommentsController < ApplicationController
   def new   
     @comment = Comment.new  
     @soupkitchen = Soupkitchen.find(params[:soupkitchen_id])  
-    flash.now[:notice] = "You must be logged in to leave a comment."  if !logged_in?
+    if !logged_in?
+      flash[:notice] = "You must be logged in to leave a comment." 
+      redirect_to soupkitchens_path(@soupkitchen)
+    end 
   end 
 
   def create
@@ -26,7 +29,7 @@ class CommentsController < ApplicationController
         render 'soupkitchens/show'
       end
     else
-      flash.now[:notice] = "Gotta' log in to leave a review."
+      flash[:notice] = "Gotta' log in to leave a review."
       redirect_to root_path
     end
   end
