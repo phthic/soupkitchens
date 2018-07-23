@@ -10,7 +10,6 @@ class Soupkitchen < ApplicationRecord
   
 
   def self.current_user_name(current_user)
-    binding.pry
     @current_user = self.user.id 
     @current_user_name = self.user.first_name 
   end 

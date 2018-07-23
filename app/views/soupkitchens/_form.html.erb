@@ -47,7 +47,7 @@
 
 
     <%= f.label :added_by %>
-    <%= f.text_field :added_by, value: @current_user_name %>
-<% binding.pry %>
+    <%= f.text_field :added_by, value: current_user.first_name %>
+
     <%= f.submit %>
 <% end %>		
