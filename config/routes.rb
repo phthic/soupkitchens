@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new', as: "signin"
   post '/signin', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: "logout"
-  get '/comments', to: 'comments#index', as: "comments"
+  get '/stats', to: 'comments#index', as: "stats"
 
   get '/auth/:provider/callback', to: 'sessions#create'
   # get '/comments/most_recently_updated', to: 'comments#

@@ -19,13 +19,29 @@
     </div>
 <% end %>
 
+<%= form_tag '/signin' do %>
 
-<%= form_tag '/signin' do  %>
+    First name: <%= text_field_tag :first_name %> <br>
+    Email: <%= email_field_tag :email  %><br>
+    Password: <%= password_field_tag :password %><br>
 
-  First name: <%= text_field_tag :first_name %> <br>
-  Email: <%= email_field_tag :email  %><br>
-  Password: <%= password_field_tag :password %><br>
- 
-  <%= submit_tag "Sign In" %>
+     <%= submit_tag "Sign In" %>
 
-<% end %>
+ <% end %>
+<!-- 
+
+
+
+
+<%= form_with scope: :session, url: signin_path do |form| %>
+  
+  First Name <%= form.text_field :first_name %><br>
+
+  <%= form.label(:email, "Email") %>
+  <%= form.email_field :email %><br>
+
+  <%= form.label(:password, "Password") %>
+  <%= form.password_field :password %><br>
+
+  <%= form.submit "Sign in" %> -->
+ <!-- <% end %> -->

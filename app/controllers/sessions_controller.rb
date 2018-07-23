@@ -12,7 +12,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path 
   
+
     else   #if regular login 
+
       @user = User.find_by(email: params[:email]) 
       
       if @user && @user.authenticate(params[:password]) 
@@ -20,8 +22,8 @@ class SessionsController < ApplicationController
          session[:user_id] = @user.id
          redirect_to root_path
  
-      else
-          flash.now[:notice] = "try again; have you already signed up?"
+      else #doesn't work: bug: email gets past validator, throws an error. 
+          flash[:notice] = "try again; have you already signed up?"
           render :new
       end
     end
