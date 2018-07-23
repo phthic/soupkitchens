@@ -13,7 +13,7 @@ class Soupkitchen < ApplicationRecord
     @current_user = self.user.id 
     @current_user_name = self.user.first_name 
   end 
-  # feels like this can be refactored? but not sure how; 
+  # feels like this can be refactored? but not sure how; Figure it out, so simple, this method isn't needed, it's just current_user.first_name
 
 
 end

@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   def index
     @soupkitchens = Soupkitchen.all
     @comments = Comment.all
-
   end
 
   def new   

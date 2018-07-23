@@ -12,7 +12,7 @@
 <h4> Your Reviews: </h4>
 
     <% @user.comments.each do |comment| %>
-        <p> About <%= comment.soupkitchen.name %>, you said "" <strong><%= comment.title %> </strong> <%= comment.content %>"" </p>
+        <p> About <%= comment.soupkitchen.name %>, you said " <strong><%= comment.title %>:  </strong> <%= comment.content %>" </p>
     <% end %>
 
 <br>
