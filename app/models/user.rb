@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_save { self.email = email.downcase }
+
   has_secure_password
   has_many :comments
   has_many :soupkitchens, through: :comments
@@ -6,7 +8,8 @@ class User < ApplicationRecord
   validates  :first_name, presence: true, length: {maximum: 30}
   validates :last_name, presence: true,  length: {maximum: 30}
   validates :password, presence: true, length: {minimum: 8}
-  validates :email, uniqueness: :true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i  
+  validates :email, uniqueness: :true,  format: { with: VALID_EMAIL_REGEX }
 
  # scope :most_comments, -> { User.all.comments.count } 
  # -works in console with a specific user but not here. How would I get a specific top user in there? 

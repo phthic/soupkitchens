@@ -9,19 +9,18 @@ class SessionsController < ApplicationController
   
     if auth_hash = request.env["omniauth.auth"]
       @user = User.find_or_create_by_omniauth(auth_hash)
-      session[:user_id] = @user.id
-      redirect_to root_path 
+      log_in(@user)
   
 
     else   #if regular login 
 
       @user = User.find_by(email: params[:sessions][:email]) 
    
-      if @user && @user.authenticate(params[:sessions][:password]) 
-         session[:user_id] = @user.id   
-         redirect_to root_path
+      if @user && @user.authenticate(params[:sessions][:password])   
+         log_in(@user)
+      
  
-      else #doesn't work: bug: email gets past validator, throws an error. 
+      else #still looking for true email validator. 
      
           flash.now[:notice] = "try again; have you already signed up? Did you type everything correctly?"
           render 'new'
@@ -30,8 +29,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
-    redirect_to root_path
+    log_out(@user)
   end 
 end
       

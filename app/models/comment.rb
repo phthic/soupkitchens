@@ -16,8 +16,7 @@ class Comment < ApplicationRecord
   scope  :recent, -> { where('created_at >= ?', Date.today - 30) }
   # can be changed to last day, etc etc 
 
-  # Comment.where('created_at >= ?', Date.today - 30)
-
+# #next phase of project  -- rating system with stars
   # def self.blank_stars 
   #   5 - self.rating.to_i
   # end 
