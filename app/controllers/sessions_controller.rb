@@ -14,19 +14,17 @@ class SessionsController < ApplicationController
   
 
     else   #if regular login 
-binding.pry
+
       @user = User.find_by(email: params[:email]) 
-      binding.pry
+   
       if @user && @user.authenticate(params[:password]) 
-          # Was params[:user][:email]) , trying [email]
-         session[:user_id] = @user.id
-         binding.pry
+         session[:user_id] = @user.id   
          redirect_to root_path
  
       else #doesn't work: bug: email gets past validator, throws an error. 
-        binding.pry
-          flash[:notice] = "try again; have you already signed up?"
-          render :new
+     
+          flash[:notice] = "try again; have you already signed up? Did you type everything correctly?"
+          redirect_to signin_path
       end
     end
   end
