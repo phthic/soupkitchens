@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_path(@user), notice: "Changes were successful."
     else 
-      render :show
+      render :show, notice: "Changes were not successful."
     end 
   end 
 
@@ -48,9 +48,11 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to @users_path
   end 
+
   private
-	def user_params
-      params.require(:user).permit( :first_name, :last_name, :email, :mobile_number, :password, :password_confirmation, :about_me)
+	
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :mobile_number, :about_me, :password, :password_confirmation)
        
-    end
+  end
 end

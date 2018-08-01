@@ -1,27 +1,13 @@
 <h2>Hey <%= @user.first_name %>! </h2>
 
-<%= @user.about_me %><br>
-  
 <% if @user.about_me %>
   <h3> Great job. Need to make any changes? </h3>
 
-      <%= form_for @user do |f| %>
-
-         <%= f.label :about_me %>
-         <%= f.text_area :about_me %> <br>
-         <%= f.submit "save changes"%>
-
-      <% end %>
 <% else %>
-   <h3> Tell us something about yourself. </h3>
-    <%= form_for @user do |f| %>
+   <h3> Fill in "about me" and tell us something about yourself. </h3>
+<% end %>  
 
-         <%= f.label :about_me %>
-         <%= f.text_area :about_me %><br>
-         <%= f.submit "save"%>
-
-    <% end %>
-<% end %>
+    <%= render 'about_me' %>'
 
 
 <%= link_to "home", root_path %><br>
