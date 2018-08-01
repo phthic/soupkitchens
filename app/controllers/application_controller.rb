@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception 
+    # protects from CSRF-creates before_filter that calls the verify_authenticity_token function. 
   include SessionsHelper
 
   helper_method :current_user
@@ -13,6 +14,7 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
     # or !current_user.nil? 
+    # !! creates a boolean/True
   end 
 
   def current_user 
