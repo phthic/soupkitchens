@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 		@user = User.new
 	end 
 
-#signup
+
 	def create
 	  @user = User.new(user_params)
 	  if @user.save
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_path(@user), notice: "Changes were successful."
     else 
-      render :edit
+      render :show
     end 
   end 
 
