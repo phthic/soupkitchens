@@ -6,8 +6,11 @@ class SoupkitchensController < ApplicationController
   end 
 
   def new
-    @soupkitchen = Soupkitchen.new
-    flash.now[:notice] = "You must be logged in to add a new soupkitchen." if !logged_in?
+    if logged_in?
+      @soupkitchen = Soupkitchen.new
+    else
+      flash.now[:notice] = "You must be logged in to add a new soupkitchen." 
+    end 
   end
 
   def create 
