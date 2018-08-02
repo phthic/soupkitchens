@@ -15,6 +15,12 @@ class Soupkitchen < ApplicationRecord
   end 
   # feels like this can be refactored? but not sure how; Figure it out, so simple, this method isn't needed, it's just current_user.first_name
 
+  # def self.comments?
+  #   Soupkitchen.comments.count > 0
+  # end 
+
+# This works: Soupkitchen.select(:comments_count, :DESC)
+
 
 end
   
