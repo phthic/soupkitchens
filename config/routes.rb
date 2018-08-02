@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: "logout"
   get '/stats', to: 'comments#index', as: "stats"
 
+  get '/most_popular_soupkitchen', to: 'soupkitchens#most_popular', as: "most_popular"
+
   get '/auth/:provider/callback', to: 'sessions#create'
   # get '/comments/most_recently_updated', to: 'comments#
   # most_recently_updated'

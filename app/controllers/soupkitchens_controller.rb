@@ -1,6 +1,13 @@
 class SoupkitchensController < ApplicationController
 	# before_action :set_soupkitchen, only [:show, :edit, :update, :destroy]
   # add before_action for being logged in new, create, edit, update destroy 
+
+
+  def most_popular
+    @soupkitchens = Soupkitchen.all
+    @comments = Comment.all
+  end 
+
   def index
   	@soupkitchens = Soupkitchen.all
   end 
@@ -26,6 +33,7 @@ class SoupkitchensController < ApplicationController
     end
   end
 
+
   def show
     @soupkitchen = Soupkitchen.find(params[:id])
   end
@@ -44,6 +52,7 @@ class SoupkitchensController < ApplicationController
   	end 
   end 
 
+
   def destroy
   	@soupkitchen.destroy
   	redirect_to @soupkitchens_path
@@ -51,7 +60,7 @@ class SoupkitchensController < ApplicationController
 
  private
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :rating)
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :rating, :most_popular)
   end 
 
   # def set_soupkitchen
