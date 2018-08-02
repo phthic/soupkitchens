@@ -3,7 +3,7 @@
 
 <!-- 1. scope where.soupkitchen.comments order: Desc. limit(1) def most_popular -->
 
-
+<%= @soupkitchen.most_popular %>
 
   <table>
     <thead>
@@ -13,7 +13,7 @@
       </tr>
      </thead>
      </tbody>
-   
+  
       <% @soupkitchens.each do |soupkitchen| %> 
         <tr>    
           <td><%= soupkitchen.name %></td>

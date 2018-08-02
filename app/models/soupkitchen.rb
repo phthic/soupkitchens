@@ -19,10 +19,15 @@ class Soupkitchen < ApplicationRecord
   #   comments.count
   # end
 
+# order.comments.size("DESC").limit(1) Soupkitchen.includes(:comments).order(comments.size ASC)
 
-  def self.most_popular
-    Soupkitchen.order("comments_count DESC")
-  end
+  # def self.most_popular(soupkitchen)
+  #   Soupkitchen.order("comments_count DESC").limit[1]
+  # end
+
+  scope :most_popular, -> { Soupkitchen.where(:comments.size).order("DESC")}
+
+  
 
   # def most_popular
   #   Soupkitchen.all(:select => "comments.*, COUNT(comment_id) as post_count",

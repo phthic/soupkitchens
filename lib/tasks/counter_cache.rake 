@@ -1,5 +1,6 @@
 desc 'Counter cache for soupkitchen has many comments'
 
+
 comment comment_counter: :environment do
   Soupkitchen.reset_column_information
   Soupkitchen.pluck(:id).find_each do |c|

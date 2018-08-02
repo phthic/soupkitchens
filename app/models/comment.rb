@@ -1,14 +1,16 @@
 class Comment < ApplicationRecord
   
-	belongs_to :user
+	belongs_to :user, counter_cache: true 
 	belongs_to :soupkitchen, counter_cache: true
   validates_presence_of :title, :content
-
-  
 
   scope :most_recently_updated, -> { Comment.last.soupkitchen.name } 
   scope :date_today, -> { Date.today } # add regex 
   scope  :recent, -> { where('created_at >= ?', Date.today - 30) }
+
+  # def self.reset
+  #   Soupkitchen.find_each { |soupkitchen| Soupkitchen.reset_counters(soupkitchen.id, :comments) }
+  # end 
 
    # scope :recent, -> {order(“created_at DESC”) }
   # scope :comment_count -> { Comment.count }
