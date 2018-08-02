@@ -8,6 +8,8 @@
 <% else %>
   <h4>Want to add your profile?</h4> <%= link_to "Add profile", edit_user_path(@user) %>
 <% end %>
+<br>
+<%= link_to "Edit your profile", edit_user_path(@user) %>
 
 <h4> Your Reviews: </h4>
 
@@ -17,7 +19,7 @@
 
 <br>
 
-You've visited and rated these soupkitchens: 
+<h3>You've visited and rated these soupkitchens: </h3>
     <% @user.soupkitchens.uniq.each do |soupkitchen| %>
 
        <li><%= soupkitchen.name %></li>

@@ -1,8 +1,18 @@
 <p>As of <%= @comments.date_today %>, there are 
-<%= @comments.count %> reviews and <%= @users.count %> reviewers and <%= @soupkitchens.count %> soupkitchens.
+<%= @comments.count %> reviews,<%= @users.count %> reviewers and <%= @soupkitchens.count %> soupkitchens.
 
 <p>The last review was for <%= @comments.most_recently_updated %>.</p>
 
-(Note: schedule 1:1 on making more powerful scopes -- last 5, most popular, etc, etc., and transferring code that works in console into scope syntax. )
+<p class="recent-comments">Most recent comments 
+
+  <%  @comments.recent.each_with_index do |comment, index| %>
+  <p><%= index + 1 %>. <%= comment.soupkitchen.name %> <br> <%= comment.title %>: <%= comment.content %></p>
+  <% end %>
+
+
+
+</p>
+
+
  
     

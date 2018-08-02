@@ -29,7 +29,17 @@ FIX -- email - I used email_field - it checks for @ and for somthing after @ but
 
 Know expected return data of methods -- 
 
+Not sure I have the user_submittable attribute right -- special way that it comes through the user profile page. 
 
+
+8. For 1:1
+-- scopes, how to make them better
+-- user-submittable attribute 
+-- email verification 
+
+Submitted: now... 
+-- refactor 
+-- 
 
 
 from comments new 
@@ -44,4 +54,24 @@ from comments new
         
           <% end %>
 
+
+
+sessions#new
+use this, or other way to catch errors? 
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+            <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+        </h2>
+
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li>
+                    <%= message %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
      
