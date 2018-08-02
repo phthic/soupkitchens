@@ -1,7 +1,44 @@
-<h2>Most popular soupkitchen: </h2>
+<h2>Most popular soupkitchen </h2>
+<h4>(where popular is a stand-in for "most comments." Rating system coming soon.) </h4>
 
 <!-- 1. scope where.soupkitchen.comments order: Desc. limit(1) def most_popular -->
 
-  <%= soupkitchen.most_popular %>
 
+
+  <table>
+    <thead>
+      <tr>
+        <th> Soupkitchen </th>
+        <th> Comments </th> 
+      </tr>
+     </thead>
+     </tbody>
+   
+      <% @soupkitchens.each do |soupkitchen| %> 
+        <tr>    
+          <td><%= soupkitchen.name %></td>
+          <td><%= pluralize(soupkitchen.comments.size, 'comment') %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+<h2>Top Reviewers</h2>
+  <table>
+    <thead>
+      <tr>
+        <th> Reviewers </th>
+        <th> Comments </th> 
+      </tr>
+     </thead>
+     </tbody>
+      <% @users.each do |user| %> 
+        <tr>    
+          <td><%= user.first_name %></td>
+          <td><%= pluralize(user.comments.size, 'comment') %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
 

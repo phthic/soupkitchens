@@ -6,6 +6,7 @@ class SoupkitchensController < ApplicationController
   def most_popular
     @soupkitchens = Soupkitchen.all
     @comments = Comment.all
+    @users = User.all
   end 
 
   def index

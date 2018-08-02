@@ -15,6 +15,23 @@ class Soupkitchen < ApplicationRecord
   end 
   # feels like this can be refactored? but not sure how; Figure it out, so simple, this method isn't needed, it's just current_user.first_name
 
+  # def comment_count
+  #   comments.count
+  # end
+
+
+  def self.most_popular
+    Soupkitchen.order("comments_count DESC")
+  end
+
+  # def most_popular
+  #   Soupkitchen.all(:select => "comments.*, COUNT(comment_id) as post_count",
+  #    :joins => "LEFT JOIN soupkitchen. AS soupkitchen. ON soupkitchen.comments_id = comment.id",
+  #    :group => "soupkitchen.comments_id",
+  #    :order => "soupkitchen_count DESC",
+  #    :limit => 5)
+  # end 
+
 
 end
   
