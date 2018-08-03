@@ -4,9 +4,11 @@
 <!-- 1. scope where.soupkitchen.comments order: Desc. limit(1) def most_popular -->
 
 
-<% @soupkitchens.each do |s|  %>
+<% @soupkitchens.each do |soupkitchen|  %>
 
-  <%= s.most_comments %>
+  <%= soupkitchen.comments_count %>
+
+   
 
   <table>
     <thead>

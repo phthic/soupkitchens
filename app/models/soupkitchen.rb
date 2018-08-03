@@ -15,6 +15,14 @@ class Soupkitchen < ApplicationRecord
   end 
 
 
+  def self.largest_hash_key(hash)
+      self.comments_count.max_by {|k,v| v}}
+  end 
+
+  def self.biggest(comments_count)
+    self.select { comments_count, value| value == self.values.max}
+  end
+
   def self.most_comments
     self.where("comments_count").order("DESC")
     self.all.sort_by { |comments_count, v| v}.reverse

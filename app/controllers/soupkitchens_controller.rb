@@ -3,14 +3,14 @@ class SoupkitchensController < ApplicationController
   # add before_action for being logged in new, create, edit, update destroy 
 
 
-  def most_popular
-    @soupkitchen = Soupkitchen.most_comments
+  # def most_popular
+  #   @soupkitchen = Soupkitchen.most_comments
 
-    # @comments = Comment.all
-    @users = User.all
-    # @soupkitchen = Soupkitchen.most_popular
-    @soupkitchens = Soupkitchen.all
-  end 
+  #   # @comments = Comment.all
+  #   @users = User.all
+  #   # @soupkitchen = Soupkitchen.most_popular
+  #   @soupkitchens = Soupkitchen.all
+  # end 
 
   def index
   	@soupkitchens = Soupkitchen.all
