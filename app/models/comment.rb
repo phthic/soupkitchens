@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   
-	belongs_to :user, counter_cache: true 
-	belongs_to :soupkitchen, counter_cache: true
+	belongs_to :user
+	belongs_to :soupkitchen, :counter_cache => true
   validates_presence_of :title, :content
 
   scope :most_recently_updated, -> { Comment.last.soupkitchen.name } 

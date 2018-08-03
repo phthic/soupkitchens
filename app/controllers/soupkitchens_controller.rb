@@ -4,10 +4,12 @@ class SoupkitchensController < ApplicationController
 
 
   def most_popular
-    @soupkitchens = Soupkitchen.all
-    @comments = Comment.all
+    @soupkitchen = Soupkitchen.most_comments
+
+    # @comments = Comment.all
     @users = User.all
-    @soupkitchen = Soupkitchen.most_popular
+    # @soupkitchen = Soupkitchen.most_popular
+    @soupkitchens = Soupkitchen.all
   end 
 
   def index
@@ -62,7 +64,7 @@ class SoupkitchensController < ApplicationController
 
  private
   def soupkitchen_params
-    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :rating, :most_popular)
+    params.require(:soupkitchen).permit(:name, :address, :city, :state, :zipcode, :rating, :most_popular, :comments_count)
   end 
 
   # def set_soupkitchen

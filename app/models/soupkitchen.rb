@@ -13,7 +13,21 @@ class Soupkitchen < ApplicationRecord
     @current_user = self.user.id 
     @current_user_name = self.user.first_name 
   end 
-  # feels like this can be refactored? but not sure how; Figure it out, so simple, this method isn't needed, it's just current_user.first_name
+
+
+  def self.most_comments
+    self.where("comments_count").order("DESC")
+    self.all.sort_by { |comments_count, v| v}.reverse
+  end 
+  # def reset_counter
+  #   execute <<-SQL.squish
+  #       UPDATE soupkitchens
+  #          SET comments_count = (SELECT count(1)
+  #                                  FROM comments
+  #                                 WHERE comments.soupkitchen_id = soupkitchens.id)
+  #   SQL
+  # end
+  # # feels like this can be refactored? but not sure how; Figure it out, so simple, this method isn't needed, it's just current_user.first_name
 
   # def comment_count
   #   comments.count
@@ -25,7 +39,7 @@ class Soupkitchen < ApplicationRecord
   #   Soupkitchen.order("comments_count DESC").limit[1]
   # end
 
-  scope :most_popular, -> { Soupkitchen.where(:comments.size).order("DESC")}
+  # scope :most_popular, -> { Soupkitchen.where('comments_count').order("DESC")}
 
   
 
