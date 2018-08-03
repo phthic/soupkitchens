@@ -1,8 +1,4 @@
-class AddDataUpdaterToSoupkitchenTable < ActiveRecord::Migration[5.2]
-  def change
-  end
-
-
+class AddDataUpdaterToSoupkitchensTable < ActiveRecord::Migration[5.2]
   def data
     execute <<-SQL.squish
         UPDATE soupkitchen
