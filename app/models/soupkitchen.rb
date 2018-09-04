@@ -8,8 +8,9 @@ class Soupkitchen < ApplicationRecord
   validates_uniqueness_of :name, :address
   validates_numericality_of :zipcode, length: {maximum: 5}
   
-  # scope :most_popular, -> { Soupkitchen.maximum('comments_count') }
-  scope :most_popular, -> {Soupkitchen.all.order("comments_count DESC")first }
+  def self.most_popular
+    Soupkitchen.all.order("comments_count DESC").first
+  end
 
   def self.current_user_name(current_user)
     @current_user = self.user.id 
@@ -20,11 +21,8 @@ class Soupkitchen < ApplicationRecord
 # Soupkitchen.comments.count  and iterate through to get the highest
   # or: Soupkitchen.all.order("comments_count DESC").first
   #  or: scope :most_popular, -> { Soupkitchen.maximum('comments_count') }
+ # scope :most_popular, -> { Soupkitchen.maximum('comments_count') }
 
-
-  # THIS ONEdef self.most_popular
-  #   Soupkitchen.all.order("comments_count DESC").first
-  # end
 
 # scope :most_popular, -> {Soupkitchen.all.order("comments_count DESC")first }
 # This works: Soupkitchen.select(:comments_count, :DESC)
