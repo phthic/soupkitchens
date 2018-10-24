@@ -1,7 +1,57 @@
+<<<<<<< HEAD
 <h2>The most popular soupkitchen is <%= @soupkitchens.most_popular.name %>.
+=======
+<h2>Most Comments </h2>
+
+>>>>>>> most-popular
 
 
+<<<<<<< HEAD
   
 
+=======
+>>>>>>> most-popular
 
+<% @soupkitchens.each do |soupkitchen|  %>
+
+  <%= soupkitchen.comments_count %>
+
+   
+
+  <table>
+    <thead>
+      <tr>
+        <th> Soupkitchen </th>
+        <th> Comments </th> 
+      </tr>
+     </thead>
+     </tbody>
+  
+      <% @soupkitchens.each do |soupkitchen| %> 
+        <tr>    
+          <td><%= soupkitchen.name %></td>
+          <td><%= pluralize(soupkitchen.comments.size, 'comment') %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+<h2>Top Reviewers</h2>
+  <table>
+    <thead>
+      <tr>
+        <th> Reviewers </th>
+        <th> Comments </th> 
+      </tr>
+     </thead>
+     </tbody>
+      <% @users.each do |user| %> 
+        <tr>    
+          <td><%= user.first_name %></td>
+          <td><%= pluralize(user.comments.size, 'comment') %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
 

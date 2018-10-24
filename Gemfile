@@ -7,6 +7,7 @@ ruby '2.3.1'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -16,8 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 gem 'awesome_print', '~> 1.8'
-gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'omniauth-twitter'
+gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'omniauth-github', '~> 1.3'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
