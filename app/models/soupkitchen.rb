@@ -8,6 +8,7 @@ class Soupkitchen < ApplicationRecord
   validates_uniqueness_of :name, :address
   validates_numericality_of :zipcode, length: {maximum: 5}
   
+  # new feature
   def self.most_popular
     Soupkitchen.all.order("comments_count DESC").first
   end

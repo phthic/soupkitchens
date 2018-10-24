@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   	resources :comments
   end 
   resources :food_pantries
+  end 
   
 end
